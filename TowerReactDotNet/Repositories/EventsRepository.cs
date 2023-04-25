@@ -37,5 +37,22 @@ namespace TowerReactDotNet.Repositories
             eventData.Id = id;
             return eventData;
         }
+
+        internal List<TowerEvent> GetAllEvents()
+        {
+            string sql = @"
+            SELECT
+            e.*,
+            a.*
+            FROM events e
+            JOIN accounts a ON e.creatorId = a.id
+            ORDER BY e.id;
+            "; List<TowerEvent> allEvents = _db.Query<TowerEvent, Profile, TowerEvent>(sql, (te, p) =>
+            {
+                te.Creator = p;
+                return te;
+            }).ToList();
+            return allEvents;
+        }
     }
 }

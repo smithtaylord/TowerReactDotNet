@@ -32,5 +32,20 @@ namespace TowerReactDotNet.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        [HttpGet]
+
+        public ActionResult<List<TowerEvent>> GetAllEvents()
+        {
+            try
+            {
+                List<TowerEvent> allEvents = _eventsService.GetAllEvents();
+                return Ok(allEvents);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }

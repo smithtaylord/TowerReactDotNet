@@ -14,5 +14,11 @@ namespace TowerReactDotNet.Services
             TowerEvent newEvent = _repo.CreateEvent(eventData);
             return newEvent;
         }
+
+        internal List<TowerEvent> GetAllEvents()
+        {
+            List<TowerEvent> allEvents = _repo.GetAllEvents();
+            return allEvents;
+        }
     }
 }
