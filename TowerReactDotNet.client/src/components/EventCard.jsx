@@ -6,11 +6,14 @@ export default function EventCard({event}) {
     return (
 
         <>
-        <h1>{event.name}</h1>
         <img 
         className='sm-event-pic'
         src={event.coverImg} 
         alt={event.name} />
+        <div>
+            <h3>{event.name}</h3>
+            <div>{event.capacity} Spots Left</div>
+        </div>
         </>
     )
 

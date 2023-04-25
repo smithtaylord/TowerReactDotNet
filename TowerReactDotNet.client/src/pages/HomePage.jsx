@@ -18,7 +18,7 @@ async function getAllEvents(){
 let event = (AppState.allEvents.map(e =>{
   return (
     <div
-    className='col-3' 
+    className='col-3 p-4' 
     key={e.id}>
       <EventCard event={e} />
     </div>
