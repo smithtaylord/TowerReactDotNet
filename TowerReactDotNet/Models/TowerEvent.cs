@@ -9,6 +9,7 @@ namespace TowerReactDotNet.Models
         public string Location { get; set; }
         public int Capacity { get; set; }
         public string StartDate { get; set; }
+        public string Type { get; set; }
         public bool IsCanceled { get; set; }
         public string CreatorId { get; set; }
         public Profile Creator { get; set; }

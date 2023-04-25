@@ -32,7 +32,7 @@ namespace TowerReactDotNet.Repositories
             @startDate,
             @creatorId
             );
-            SELECT LAST_INSERT_ID():
+            SELECT LAST_INSERT_ID();
             "; int id = _db.ExecuteScalar<int>(sql, eventData);
             eventData.Id = id;
             return eventData;

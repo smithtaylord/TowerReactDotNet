@@ -28,6 +28,8 @@ ALTER TABLE events ADD type VARCHAR(100) NOT NULL ;
 
 ALTER TABLE events MODIFY COLUMN startDate VARCHAR(100) NOT NULL;
 
+ALTER TABLE events MODIFY COLUMN description VARCHAR(1000) NOT NULL;
+
 INSERT INTO
     events(
         name,
