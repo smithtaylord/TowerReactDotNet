@@ -8,5 +8,11 @@ namespace TowerReactDotNet.Services
         {
             _repo = repo;
         }
+
+        internal TowerEvent CreateEvent(TowerEvent eventData)
+        {
+            TowerEvent newEvent = _repo.CreateEvent(eventData);
+            return newEvent;
+        }
     }
 }

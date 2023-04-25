@@ -12,5 +12,25 @@ namespace TowerReactDotNet.Controllers
             _eventsService = eventsService;
             _auth = auth;
         }
+
+        [HttpPost]
+        [Authorize]
+
+        async public Task<ActionResult<TowerEvent>> CreateEvent([FromBody] TowerEvent eventData)
+        {
+            try
+            {
+                Account userInfo = await _auth.GetUserInfoAsync<Account>(HttpContext);
+                eventData.CreatorId = userInfo.Id;
+                TowerEvent newEvent = _eventsService.CreateEvent(eventData);
+                newEvent.Creator = userInfo;
+                return Ok(newEvent);
+
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }

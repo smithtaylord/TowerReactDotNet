@@ -24,6 +24,10 @@ CREATE TABLE
 
 ALTER TABLE events ALTER COLUMN isCanceled SET DEFAULT false;
 
+ALTER TABLE events ADD type VARCHAR(100) NOT NULL ;
+
+ALTER TABLE events MODIFY COLUMN startDate VARCHAR(100) NOT NULL;
+
 INSERT INTO
     events(
         name,
@@ -32,6 +36,7 @@ INSERT INTO
         location,
         capacity,
         startDate,
+        type,
         isCanceled,
         creatorId
     )
@@ -42,6 +47,7 @@ VALUES (
         'Mars',
         25,
         '2023-04-25',
+        'music',
         false,
         '63ebf351822e730e1e0b3616'
     );
