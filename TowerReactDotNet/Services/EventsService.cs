@@ -20,5 +20,12 @@ namespace TowerReactDotNet.Services
             List<TowerEvent> allEvents = _repo.GetAllEvents();
             return allEvents;
         }
+
+        internal TowerEvent GetOneEvent(int id)
+        {
+            TowerEvent oneEvent = _repo.GetOneEvent(id);
+            if (oneEvent == null) throw new Exception($"No event found with id: {id}");
+            return oneEvent;
+        }
     }
 }

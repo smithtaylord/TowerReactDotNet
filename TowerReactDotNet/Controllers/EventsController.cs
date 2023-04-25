@@ -47,5 +47,19 @@ namespace TowerReactDotNet.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        [HttpGet("{id}")]
+        public ActionResult<List<TowerEvent>> GetOneEvent(int id)
+        {
+            try
+            {
+                TowerEvent oneEvent = _eventsService.GetOneEvent(id);
+                return Ok(oneEvent);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }
