@@ -2,8 +2,9 @@ import { observer } from 'mobx-react-lite';
 import React, { useEffect } from 'react';
 import Pop from '../utils/Pop.js';
 import { eventsService } from '../services/EventsService.js';
+import { AppState } from '../AppState.js';
 
-function componentName() {
+function HomePage() {
 async function getAllEvents(){
   try {
     await eventsService.getAllEvents()
@@ -13,6 +14,14 @@ async function getAllEvents(){
   }
 }
 
+let event = (AppState.allEvents.map(e =>{
+  return (
+    <div key={e.id}>
+      {e.name}
+    </div>
+  )
+}))
+
 useEffect(() => {
   getAllEvents()
 },[])
@@ -20,9 +29,9 @@ useEffect(() => {
   return (
 
     <div className="componentName">
-
+{event}
     </div>
   )
 
 }
-export default observer(componentName)
+export default observer(HomePage)
