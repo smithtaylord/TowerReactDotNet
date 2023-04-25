@@ -1,23 +1,28 @@
-import React, { useState } from "react";
+import { observer } from 'mobx-react-lite';
+import React, { useEffect } from 'react';
+import Pop from '../utils/Pop.js';
+import { eventsService } from '../services/EventsService.js';
 
-export default function HomePage() {
-  const [count, setCount] = useState(0)
+function componentName() {
+async function getAllEvents(){
+  try {
+    await eventsService.getAllEvents()
+  }
+  catch (error){
+    Pop.error(error);
+  }
+}
+
+useEffect(() => {
+  getAllEvents()
+},[])
 
   return (
-    <div className="home-page">
-      <div className="container my-3">
-        <div className="row">
-          <div className="col-4">
-            <div className="card">
-              <div className="card-body">
-                <button className="btn btn-success my-1" onClick={() => setCount((count) => count + 1)}>
-                  count is {count}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
+    <div className="componentName">
+
     </div>
   )
+
 }
+export default observer(componentName)
