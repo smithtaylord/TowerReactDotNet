@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import Pop from '../utils/Pop.js';
 import { eventsService } from '../services/EventsService.js';
 import { AppState } from '../AppState.js';
+import EventCard from '../components/EventCard.jsx';
 
 function HomePage() {
 async function getAllEvents(){
@@ -16,8 +17,10 @@ async function getAllEvents(){
 
 let event = (AppState.allEvents.map(e =>{
   return (
-    <div key={e.id}>
-      {e.name}
+    <div
+    className='col-3' 
+    key={e.id}>
+      <EventCard event={e} />
     </div>
   )
 }))
@@ -28,8 +31,10 @@ useEffect(() => {
 
   return (
 
-    <div className="componentName">
-{event}
+    <div className="container-fluid">
+      <div className="row">
+          {event}
+      </div>
     </div>
   )
 
