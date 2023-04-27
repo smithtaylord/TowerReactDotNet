@@ -17,10 +17,14 @@ function HomePage() {
     }
   }
 
-  let event = (AppState.allEvents.map(e => {
+  let filteredEvents = AppState.allEvents;
+  if (AppState.activeFilter) {
+    filteredEvents = filteredEvents.filter(f => f.type == AppState.activeFilter)
+  }
+  let event = (filteredEvents.map(e => {
     return (
       <div
-        className='col-3 p-4'
+        className='col-12 col-md-3 p-4'
         key={e.id}>
         <EventCard event={e} />
       </div>

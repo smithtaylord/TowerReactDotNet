@@ -21,6 +21,11 @@ export default function SortBar() {
             setFilterActive(filter)
         }
     }
+    function getClassName(value) {
+        const baseClassName = "text-center fancy-hover fancy-text fs-4 align-items-center p-3 bottom-border-hover";
+        const isActive = AppState.activeFilter === value;
+        return isActive ? `${baseClassName} active` : baseClassName;
+    }
 
     function renderSortByOptions() {
         return Object.keys(sortByOptions).map(sbo => {
@@ -30,16 +35,15 @@ export default function SortBar() {
                     key={value}
                     className='col-6 col-md-2'
                     onClick={handleFilterClick(value)}>
-                    <div
-                        className='text-center fancy-hover fancy-text fs-4 align-items-center p-3 bottom-border-hover'>
+                    <div className={getClassName(value)}>
                         {sbo}
                     </div>
-                </div>
+                </div >
             )
         })
     }
     return (
-        <div className="container-fluid bg-secondary">
+        <div className="container-fluid bg-secondary tower-box-shadow">
             <div className="row">
                 {renderSortByOptions()}
             </div>
