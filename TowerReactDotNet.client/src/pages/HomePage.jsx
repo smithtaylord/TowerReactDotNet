@@ -4,6 +4,7 @@ import Pop from '../utils/Pop.js';
 import { eventsService } from '../services/EventsService.js';
 import { AppState } from '../AppState.js';
 import EventCard from '../components/EventCard.jsx';
+import Banner from '../components/Banner.jsx';
 
 function HomePage() {
 async function getAllEvents(){
@@ -30,12 +31,14 @@ useEffect(() => {
 },[])
 
   return (
-
+<>
+    <Banner />
     <div className="container-fluid">
       <div className="row">
           {event}
       </div>
     </div>
+</>
   )
 
 }
