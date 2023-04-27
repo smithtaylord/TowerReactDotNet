@@ -1,0 +1,27 @@
+.event-img {
+    height: 27vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+.event-body {
+    height: 5vh;
+}
+
+.glass-card {
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    background-color: #404a4e6b;
+    width: 100%;
+    backdrop-filter: blur(7px)
+}
+
+.card-border {
+    border: 3px solid #474C61;
+}
+
+.no-shadow {
+    text-shadow: none;
+    font-weight: 800;
+    color: black;
+}
