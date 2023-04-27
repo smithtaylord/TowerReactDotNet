@@ -39,7 +39,6 @@ function HomePage() {
     <>
       <Banner />
       <SortBar />
-      <div>{AppState.activeFilter}</div>
       <div className="container-fluid">
         <div className="row">
           {event}
