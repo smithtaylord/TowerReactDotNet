@@ -5,40 +5,43 @@ import { eventsService } from '../services/EventsService.js';
 import { AppState } from '../AppState.js';
 import EventCard from '../components/EventCard.jsx';
 import Banner from '../components/Banner.jsx';
+import SortBar from '../components/SortBar.jsx';
 
 function HomePage() {
-async function getAllEvents(){
-  try {
-    await eventsService.getAllEvents()
+  async function getAllEvents() {
+    try {
+      await eventsService.getAllEvents()
+    }
+    catch (error) {
+      Pop.error(error);
+    }
   }
-  catch (error){
-    Pop.error(error);
-  }
-}
 
-let event = (AppState.allEvents.map(e =>{
-  return (
-    <div
-    className='col-3 p-4' 
-    key={e.id}>
-      <EventCard event={e} />
-    </div>
-  )
-}))
-
-useEffect(() => {
-  getAllEvents()
-},[])
-
-  return (
-<>
-    <Banner />
-    <div className="container-fluid">
-      <div className="row">
-          {event}
+  let event = (AppState.allEvents.map(e => {
+    return (
+      <div
+        className='col-3 p-4'
+        key={e.id}>
+        <EventCard event={e} />
       </div>
-    </div>
-</>
+    )
+  }))
+
+  useEffect(() => {
+    getAllEvents()
+  }, [])
+
+  return (
+    <>
+      <Banner />
+      <SortBar />
+      <div>{AppState.activeFilter}</div>
+      <div className="container-fluid">
+        <div className="row">
+          {event}
+        </div>
+      </div>
+    </>
   )
 
 }

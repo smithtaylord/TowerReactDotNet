@@ -6,7 +6,7 @@ import { Navbar } from './components/Navbar.jsx'
 export function App() {
 
   return (
-    <div className="App" id="app">
+    <div className="App bg-dark" id="app">
       <header>
         <Navbar />
       </header>
