@@ -9,6 +9,7 @@ class ObservableAppState {
   account = null
   /** @type {import('./models/TowerEvent.js').TowerEvent[]} */
 allEvents = []
+activeEvent= {}
 activeFilter = ''
 
   constructor() {

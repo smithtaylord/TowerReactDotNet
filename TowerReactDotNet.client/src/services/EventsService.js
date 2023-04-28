@@ -15,6 +15,7 @@ async getAllEvents(){
 async getEvent(eventId){
     const res = await api.get('/api/events/' + eventId)
     logger.log("[One Event]", res.data)
+    AppState.activeEvent = new TowerEvent(res.data)
 }
 
 }
