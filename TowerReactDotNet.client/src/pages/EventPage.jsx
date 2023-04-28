@@ -3,9 +3,11 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Pop from '../utils/Pop.js';
 import { eventsService } from '../services/EventsService.js';
+import { AppState } from '../AppState.js';
 
 function componentName() {
     const { eventId } = useParams();
+    const event = AppState.activeEvent
 
     async function getEvent() {
         try {
@@ -21,11 +23,9 @@ function componentName() {
     }, [eventId])
 
     return (
-        <div className="event-page">
-            <h1>Event Page</h1>
-            <p>Event ID: {eventId}</p>
-            {/* Add your event page content here */}
-        </div>
+        <>
+
+        </>
     );
 
 }
