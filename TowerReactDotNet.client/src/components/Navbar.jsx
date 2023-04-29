@@ -26,8 +26,15 @@ export function Navbar() {
         type="button"
         className="btn bg-primary ms-5 selectable"
         data-bs-toggle="modal"
-        data-bs-target="#exampleModal">
+        data-bs-target="#createEventModal">
         Create Event
+      </button>
+      <button
+        type="button"
+        className="btn bg-primary ms-5 selectable"
+        data-bs-toggle="modal"
+        data-bs-target="#editEventModal">
+        Edit Event
       </button>
       <div className="collapse navbar-collapse" id="navbarText">
         <ul className="navbar-nav me-auto">

@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types'
 
 export default function Modal(props) {
-
+    const { target, children } = props;
     return (
 
         <div className="Modal">
-            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id={target} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
-                    {props.children}
+                    {children}
                 </div>
             </div>
         </div>
@@ -17,5 +17,6 @@ export default function Modal(props) {
 }
 
 Modal.propTypes = {
-    children: PropTypes.object.isRequired
+    children: PropTypes.object.isRequired,
+    target: PropTypes.string.isRequired
 }
