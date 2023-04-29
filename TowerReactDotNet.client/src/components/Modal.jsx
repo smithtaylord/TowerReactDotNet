@@ -7,7 +7,7 @@ export default function Modal(props) {
 
         <div className="Modal">
             <div className="modal fade" id={target} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog">
+                <div className="modal-dialog modal-lg">
                     {children}
                 </div>
             </div>
