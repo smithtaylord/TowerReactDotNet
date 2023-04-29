@@ -5,6 +5,8 @@ import Pop from '../utils/Pop.js';
 import { eventsService } from '../services/EventsService.js';
 import { AppState } from '../AppState.js';
 import EventDetails from '../components/EventDetails.jsx';
+import Attendees from '../components/Attendees.jsx';
+import Comments from '../components/Comments.jsx';
 
 function componentName() {
     const { eventId } = useParams();
@@ -26,6 +28,8 @@ function componentName() {
     return (
         <>
             <EventDetails event={event} />
+            <Attendees />
+            <Comments />
         </>
     );
 
