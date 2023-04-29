@@ -22,6 +22,13 @@ export function Navbar() {
         <span className="navbar-toggler-icon"></span>
       </button>
       <div>Made with React and .NET</div>
+      <button
+        type="button"
+        className="btn bg-primary ms-5 selectable"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal">
+        Create Event
+      </button>
       <div className="collapse navbar-collapse" id="navbarText">
         <ul className="navbar-nav me-auto">
           <li>
