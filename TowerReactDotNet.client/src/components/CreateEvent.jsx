@@ -11,36 +11,19 @@ export default function CreateEvent() {
                 <div className="selectable text-light fs-3" data-bs-dismiss="modal" aria-label="Close">&times;</div>
             </div>
             <div className="modal-body bg-dark">
-
                 <form>
                     <div className="row">
                         <div className="col-6">
                             <div className="inputbox w-100 mb-3">
                                 <input required type="text" />
-                                <span>Username</span>
+                                <span>Name</span>
                                 <i></i>
                             </div>
                         </div>
                         <div className="col-6">
                             <div className="inputbox w-100 mb-3">
                                 <input required type="text" />
-                                <span>Username</span>
-                                <i></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-6">
-                            <div className="inputbox w-100 mb-3">
-                                <input required type="text" />
-                                <span>Username</span>
-                                <i></i>
-                            </div>
-                        </div>
-                        <div className="col-6">
-                            <div className="inputbox w-100 mb-3">
-                                <input required type="text" />
-                                <span>Username</span>
+                                <span>Cover Image</span>
                                 <i></i>
                             </div>
                         </div>
@@ -49,14 +32,30 @@ export default function CreateEvent() {
                         <div className="col-6">
                             <div className="inputbox w-100 mb-3">
                                 <input required type="text" />
-                                <span>Username</span>
+                                <span>Location</span>
+                                <i></i>
+                            </div>
+                        </div>
+                        <div className="col-6">
+                            <div className="inputbox w-100 mb-3">
+                                <input required type="date" />
+                                <span>Date</span>
+                                <i></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-6">
+                            <div className="inputbox w-100 mb-3">
+                                <input required type="number" />
+                                <span>Capacity</span>
                                 <i></i>
                             </div>
                         </div>
                         <div className="col-6">
                             <div className="inputbox w-100 mb-3">
                                 <input required type="text" />
-                                <span>Username</span>
+                                <span>Event Type</span>
                                 <i></i>
                             </div>
                         </div>
@@ -65,7 +64,7 @@ export default function CreateEvent() {
                         <div className="col-12">
                             <div className="inputbox w-100 mb-3">
                                 <input required type="text" />
-                                <span>Username</span>
+                                <span>Event Description</span>
                                 <i></i>
                             </div>
                         </div>
