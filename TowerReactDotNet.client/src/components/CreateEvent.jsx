@@ -53,11 +53,11 @@ export default function CreateEvent() {
                             </div>
                         </div>
                         <div className="col-6">
-                            <div className="inputbox w-100 mb-3">
-                                <input required type="text" />
-                                <span>Event Type</span>
-                                <i></i>
-                            </div>
+                            <select className="selectbox" aria-label="Default select example">
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
                         </div>
                     </div>
                     <div className="row">

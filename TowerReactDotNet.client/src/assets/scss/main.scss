@@ -137,3 +137,25 @@ input[type=date]:required:invalid::-webkit-datetime-edit {
 input[type=date]:focus::-webkit-datetime-edit {
   color: black !important;
 }
+
+.selectbox {
+  position: relative;
+  width: 100%;
+  background-color: transparent;
+  color: #8f8f8f;
+  cursor: pointer;
+  border: none;
+  border-bottom: 2px solid #CCF3FD;
+  outline: none;
+  padding: 20px 10px 10px;
+  font-size: 1em;
+}
+
+.selectbox option {
+  background-color: #CCF3FD;
+  color: black;
+  outline: none;
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 1em;
+}
