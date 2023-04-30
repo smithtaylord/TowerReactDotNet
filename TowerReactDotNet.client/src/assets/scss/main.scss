@@ -159,3 +159,14 @@ input[type=date]:focus::-webkit-datetime-edit {
   cursor: pointer;
   font-size: 1em;
 }
+
+.select-container.selected .selectbox {
+  background-color: #CCF3FD;
+  color: black;
+  border-radius: 4px;
+  transition: 0.5s;
+}
+
+.select-container {
+  height: 54px;
+}
