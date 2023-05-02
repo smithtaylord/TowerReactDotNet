@@ -15,6 +15,11 @@ namespace TowerReactDotNet.Services
             return newEvent;
         }
 
+        internal TowerEvent EditEvent(int id1, TowerEvent eventData, string id2)
+        {
+            throw new NotImplementedException();
+        }
+
         internal List<TowerEvent> GetAllEvents()
         {
             List<TowerEvent> allEvents = _repo.GetAllEvents();

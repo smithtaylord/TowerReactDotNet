@@ -61,5 +61,22 @@ namespace TowerReactDotNet.Controllers
                 return BadRequest(e.Message);
             }
         }
+        [HttpPut]
+        [Authorize]
+
+        async public Task<ActionResult<TowerEvent>> EditEvent(int id, [FromBody] TowerEvent eventData)
+        {
+            try
+            {
+                Account userInfo = await _auth.GetUserInfoAsync<Account>(HttpContext);
+                TowerEvent towerEvent = _eventsService.EditEvent(id, eventData, userInfo.Id);
+
+                return Ok(towerEvent);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }
