@@ -18,6 +18,12 @@ async getEvent(eventId){
     AppState.activeEvent = new TowerEvent(res.data)
 }
 
+async createEvent(formData){
+    const res = await api.post('/api/events', formData)
+    logger.log('[create event]', res.data)
+    AppState.activeEvent = new TowerEvent(res.data)
+}
+
 }
 
 export const eventsService = new EventsService()

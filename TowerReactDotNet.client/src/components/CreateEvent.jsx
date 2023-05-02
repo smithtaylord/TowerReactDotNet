@@ -2,16 +2,24 @@ import React, { useState } from 'react';
 import { BindEditable } from '../utils/FormHandler.js';
 import Pop from '../utils/Pop.js';
 import { logger } from '../utils/Logger.js';
+import { eventsService } from '../services/EventsService.js';
+import { AppState } from '../AppState.js';
+import { useNavigate } from 'react-router-dom';
+
+
 
 export default function CreateEvent() {
     const editable = ({ type: '' })
     const bindEditable = BindEditable(editable)
+    const navigate = useNavigate();
 
 
     async function handleSubmit() {
         try {
             window.event?.preventDefault()
             logger.log({ editable })
+            await eventsService.createEvent(editable)
+            navigate(`/event/${AppState.activeEvent.id}`)
         }
         catch (error) {
             Pop.error(error);
