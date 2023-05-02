@@ -9,9 +9,11 @@ import { useNavigate } from 'react-router-dom';
 
 
 export default function CreateEvent() {
-    const editable = ({ type: '' })
+    const editable = ({})
     const bindEditable = BindEditable(editable)
     const navigate = useNavigate();
+    const formRef = React.useRef(null)
+
 
 
     async function handleSubmit() {
@@ -20,6 +22,8 @@ export default function CreateEvent() {
             logger.log({ editable })
             await eventsService.createEvent(editable)
             navigate(`/event/${AppState.activeEvent.id}`)
+            // @ts-ignore
+            formRef.current.reset()
         }
         catch (error) {
             Pop.error(error);
@@ -34,7 +38,9 @@ export default function CreateEvent() {
                 <h1 className="modal-title fs-3" id="createEventModalLabel">Create Event</h1>
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form onSubmit={handleSubmit}>
+            <form
+                onSubmit={handleSubmit}
+                ref={formRef}>
                 <div className="modal-body bg-dark px-4">
                     <div className="row">
                         <div className="col-6">
@@ -102,13 +108,13 @@ export default function CreateEvent() {
                             </div>
                         </div>
                         <div className="col-6">
-                            <div className={`select-container ${editable.type != '' ? 'selected' : ''}`}>
+                            <div className={`select-container ${editable.type == '' ? 'selected' : ''}`}>
                                 <select
                                     id="event-type-select"
                                     className="selectbox"
                                     aria-label="Event Type"
                                     name='type'
-                                    defaultValue={editable.type}
+                                    defaultValue=''
                                     onChange={bindEditable}>
                                     <option value="" disabled>Event Type</option>
                                     <option value="concert">Concert</option>
@@ -137,7 +143,10 @@ export default function CreateEvent() {
                 </div>
                 <div className="px-3 pb-4 text-end">
                     {/* <button type="button" className="selectable btn bg-secondary me-3" data-bs-dismiss="modal">Close</button> */}
-                    <button type="submit" className="selectable btn bg-success me-3 tower-box-shadow">Save changes</button>
+                    <button
+                        type="submit"
+                        className="selectable btn bg-success me-3 tower-box-shadow"
+                        data-bs-dismiss="modal">Save changes</button>
                 </div>
             </form>
         </div >
