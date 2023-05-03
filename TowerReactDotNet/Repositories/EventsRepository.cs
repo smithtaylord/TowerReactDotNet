@@ -38,7 +38,10 @@ namespace TowerReactDotNet.Repositories
             return eventData;
         }
 
-
+        internal TowerEvent DeleteEvent(int id)
+        {
+            throw new NotImplementedException();
+        }
 
         internal List<TowerEvent> GetAllEvents()
         {
@@ -74,16 +77,6 @@ namespace TowerReactDotNet.Repositories
             return oneEvent;
         }
 
-        internal void DeleteEvent(int id)
-        {
-            string sql = @"
-            UPDATE events
-            SET
-            isCanceled = true
-            WHERE id = @id;
-            ";
-            _db.Execute(sql, new { id });
 
-        }
     }
 }
