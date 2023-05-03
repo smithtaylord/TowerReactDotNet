@@ -15,10 +15,6 @@ namespace TowerReactDotNet.Services
             return newEvent;
         }
 
-        internal TowerEvent EditEvent(int id1, TowerEvent eventData, string id2)
-        {
-            throw new NotImplementedException();
-        }
 
         internal List<TowerEvent> GetAllEvents()
         {
@@ -31,6 +27,13 @@ namespace TowerReactDotNet.Services
             TowerEvent oneEvent = _repo.GetOneEvent(id);
             if (oneEvent == null) throw new Exception($"No event found with id: {id}");
             return oneEvent;
+        }
+        internal string DeleteEvent(int id, string userId)
+        {
+            TowerEvent towerEvent = this.GetOneEvent(id);
+            if (towerEvent.CreatorId != userId) throw new Exception("You are not allowed to delete this event");
+            _repo.DeleteEvent(id);
+            return $"{towerEvent.Name} has been deleted";
         }
     }
 }

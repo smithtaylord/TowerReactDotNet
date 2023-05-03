@@ -38,6 +38,8 @@ namespace TowerReactDotNet.Repositories
             return eventData;
         }
 
+
+
         internal List<TowerEvent> GetAllEvents()
         {
             string sql = @"
@@ -70,6 +72,18 @@ namespace TowerReactDotNet.Repositories
                 return te;
             }, new { id }).FirstOrDefault();
             return oneEvent;
+        }
+
+        internal void DeleteEvent(int id)
+        {
+            string sql = @"
+            UPDATE events
+            SET
+            isCanceled = true
+            WHERE id = @id;
+            ";
+            _db.Execute(sql, new { id });
+
         }
     }
 }

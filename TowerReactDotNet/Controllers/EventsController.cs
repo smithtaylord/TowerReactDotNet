@@ -61,17 +61,15 @@ namespace TowerReactDotNet.Controllers
                 return BadRequest(e.Message);
             }
         }
-        [HttpPut]
+        [HttpDelete("{id}")]
         [Authorize]
-
-        async public Task<ActionResult<TowerEvent>> EditEvent(int id, [FromBody] TowerEvent eventData)
+        async public Task<ActionResult<string>> DeleteEvent(int id)
         {
             try
             {
                 Account userInfo = await _auth.GetUserInfoAsync<Account>(HttpContext);
-                TowerEvent towerEvent = _eventsService.EditEvent(id, eventData, userInfo.Id);
-
-                return Ok(towerEvent);
+                string message = _eventsService.DeleteEvent(id, userInfo.Id);
+                return Ok(message);
             }
             catch (Exception e)
             {
