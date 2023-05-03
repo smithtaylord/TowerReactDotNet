@@ -24,8 +24,8 @@ function Login() {
       <img src={AppState.account?.picture || AppState.user?.picture} alt="account photo" height="40" className="rounded selectable no-select" data-bs-toggle="dropdown"
         aria-expanded="false" />
 
-      <div className="dropdown-menu dropdown-menu-lg-end dropdown-menu-start p-0" aria-labelledby="authDropdown">
-        <div className="list-group">
+      <div className="">
+        <div className="">
           <Link to={'Account'}>
             <div className="list-group-item dropdown-item list-group-item-action">
               Manage Account
@@ -35,6 +35,13 @@ function Login() {
             <i className="mdi mdi-logout"></i>
             logout
           </div>
+          <button
+            type="button"
+            className="btn bg-primary ms-5 selectable"
+            data-bs-toggle="modal"
+            data-bs-target="#createEventModal">
+            Create Event
+          </button>
         </div>
       </div>
     </div>

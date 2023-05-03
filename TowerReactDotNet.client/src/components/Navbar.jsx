@@ -22,30 +22,18 @@ export function Navbar() {
         <span className="navbar-toggler-icon"></span>
       </button>
       <div>Made with React and .NET</div>
-      <button
-        type="button"
-        className="btn bg-primary ms-5 selectable"
-        data-bs-toggle="modal"
-        data-bs-target="#createEventModal">
-        Create Event
-      </button>
-      <button
-        type="button"
-        className="btn bg-primary ms-5 selectable"
-        data-bs-toggle="modal"
-        data-bs-target="#editEventModal">
-        Edit Event
-      </button>
-      <div className="collapse navbar-collapse" id="navbarText">
+
+
+      {/* <div className="collapse navbar-collapse" id="navbarText">
         <ul className="navbar-nav me-auto">
-          <li>
-            {/* <Link to={'About'} className="btn text-success lighten-30 selectable text-uppercase">
+          <li> */}
+      {/* <Link to={'About'} className="btn text-success lighten-30 selectable text-uppercase">
               About
             </Link> */}
-          </li>
+      {/* </li>
         </ul>
         <Login />
-      </div >
+      </div > */}
     </nav >
   )
 }
