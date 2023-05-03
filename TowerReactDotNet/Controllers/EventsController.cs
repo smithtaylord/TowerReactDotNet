@@ -68,8 +68,8 @@ namespace TowerReactDotNet.Controllers
             try
             {
                 Account userInfo = await _auth.GetUserInfoAsync<Account>(HttpContext);
-                string message = _eventsService.DeleteEvent(id, userInfo.Id);
-                return Ok(message);
+                TowerEvent towerEvent = _eventsService.DeleteEvent(id, userInfo.Id);
+                return Ok(towerEvent);
             }
             catch (Exception e)
             {
