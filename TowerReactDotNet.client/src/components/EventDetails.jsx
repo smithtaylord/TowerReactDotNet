@@ -1,8 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import '../assets/scss/components/EventDetails.scss'
+import Pop from '../utils/Pop.js';
+import { eventsService } from '../services/EventsService.js';
 
 export default function EventDetails({ event }) {
+
+    async function cancelEvent() {
+        try {
+            if (await Pop.confirm('Are you sure you would like to cancel this event?')) {
+                await eventsService.cancelEvent(event.id)
+            }
+        }
+        catch (error) {
+            Pop.error(error);
+        }
+    }
+
 
     return (
         <div className="container-fluid my-3">
@@ -19,20 +33,17 @@ export default function EventDetails({ event }) {
                                 <div className='col-8'>
                                     <div className='text-end mt-3'
                                         title='cancel event'
-                                    >
+                                        onClick={cancelEvent}>
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
                                             viewBox="0 0 35 35"
                                             strokeWidth={1.5}
                                             stroke="currentColor"
-                                            className="text-danger cancel selectable me-3"
-                                        >
+                                            className="text-danger cancel selectable me-3">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                                         </svg>
-
                                     </div>
-
                                     <div className="d-flex justify-content-between ms-3">
                                         <div>
                                             <div className="pb-3 fs-2">{event.name}</div>

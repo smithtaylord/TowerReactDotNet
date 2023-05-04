@@ -24,6 +24,11 @@ async createEvent(formData){
     AppState.activeEvent = new TowerEvent(res.data)
 }
 
+async cancelEvent(eventId){
+const res = await api.delete('/api/events/'+ eventId)
+logger.log('[canceled event]', res.data)
+}
+
 }
 
 export const eventsService = new EventsService()
