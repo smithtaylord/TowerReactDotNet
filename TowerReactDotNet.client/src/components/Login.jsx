@@ -39,7 +39,7 @@ function Login() {
           </div>
           <button
             type="button"
-            className="btn bg-primary ms-5 selectable"
+            className="button ms-5 selectable"
             data-bs-toggle="modal"
             data-bs-target="#createEventModal">
             Create Event
