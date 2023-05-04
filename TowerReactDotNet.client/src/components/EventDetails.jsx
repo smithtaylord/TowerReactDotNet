@@ -23,7 +23,7 @@ export default function EventDetails({ event }) {
             <div className="row">
                 <div className="col-12">
                     <div className='tower-box-shadow'
-                        style={{ backgroundImage: `url(${event.coverImg})`, backgroundSize: 'cover' }}>
+                        style={event.isCanceled ? { backgroundImage: `url(${event.coverImg})`, backgroundSize: 'cover', filter: 'grayscale(50%)' } : { backgroundImage: `url(${event.coverImg})`, backgroundSize: 'cover' }}>
                         <div className='bg-card'>
                             <div className="row">
                                 <div className="col-4">
@@ -61,8 +61,8 @@ export default function EventDetails({ event }) {
                                     <div className='pb-3 d-flex justify-content-between'>
                                         <span>
                                             <b className='fs-2 pe-2 ms-3 text-info'>
-                                                {event.capacity}
-                                            </b>Spots Left
+                                                {event.isCanceled ? 'Event Canceled' : event.capacity}
+                                            </b>{event.isCanceled ? '' : 'Spots Left'}
                                         </span>
                                         <button>Attend?</button>
                                     </div>
