@@ -20,26 +20,26 @@ function Login() {
   )
 
   const authenticated = (
-    <div className="my-2 my-lg-0">
+    <div className="my-2 my-lg-0 container-fluid">
       <img src={AppState.account?.picture || AppState.user?.
         // @ts-ignore
-        picture} alt="account photo" height="40" className="rounded selectable no-select" data-bs-toggle="dropdown"
+        picture} alt="account photo" height="" className="img-fluid mt-3 rounded selectable no-select mb-3" data-bs-toggle="dropdown"
         aria-expanded="false" />
 
-      <div className="">
-        <div className="">
+      <div className="row">
+        <div className="col-12">
           <Link to={'Account'}>
-            <div className="list-group-item dropdown-item list-group-item-action">
+            <button className="button w-100 mb-3">
               Manage Account
-            </div>
+            </button>
           </Link>
-          <div className="list-group-item dropdown-item list-group-item-action text-danger selectable" onClick={logout}>
+          <button className="button-red w-100 mb-3" onClick={logout}>
             <i className="mdi mdi-logout"></i>
             logout
-          </div>
+          </button>
           <button
             type="button"
-            className="button ms-5 selectable"
+            className="button w-100 mb-3"
             data-bs-toggle="modal"
             data-bs-target="#createEventModal">
             Create Event
