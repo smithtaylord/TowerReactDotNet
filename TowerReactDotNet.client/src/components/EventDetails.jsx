@@ -17,6 +17,22 @@ export default function EventDetails({ event }) {
                                         src={event.coverImg} alt={event.name} />
                                 </div>
                                 <div className='col-8'>
+                                    <div className='text-end mt-3'
+                                        title='cancel event'
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 35 35"
+                                            strokeWidth={1.5}
+                                            stroke="currentColor"
+                                            className="text-danger cancel selectable"
+                                        >
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                        </svg>
+
+                                    </div>
+
                                     <div className="d-flex justify-content-between ">
                                         <div>
                                             <div className="pb-3 fs-2">{event.name}</div>
