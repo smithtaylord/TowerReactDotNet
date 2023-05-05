@@ -22,7 +22,7 @@ export default function EventDetails({ event }) {
         <div className="container-fluid my-3">
             <div className="row">
                 <div className="col-12">
-                    <div className='tower-box-shadow'
+                    <div className='tower-box-shadow bg-card ms-3'
                         style={event.isCanceled ? { backgroundImage: `url(${event.coverImg})`, backgroundSize: 'cover', filter: 'grayscale(50%)' } : { backgroundImage: `url(${event.coverImg})`, backgroundSize: 'cover' }}>
                         <div className='bg-card'>
                             <div className="row">
