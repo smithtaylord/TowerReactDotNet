@@ -22,5 +22,22 @@ namespace TowerReactDotNet.Repositories
             ticketData.Id = id;
             return ticketData;
         }
+
+        internal List<Ticket> GetMyTickets(string id)
+        {
+            string sql = @"
+            SELECT
+            t.*,
+            e.*
+            FROM tickets t
+            JOIN events e ON t.accountId = e.creatorId
+            WHERE t.accountId = @id;
+            "; List<Ticket> tickets = _db.Query<Ticket, TowerEvent, Ticket>(sql, (t, te) =>
+            {
+                t.Event = te;
+                return t;
+            }, new { id }).ToList();
+            return tickets;
+        }
     }
 }
