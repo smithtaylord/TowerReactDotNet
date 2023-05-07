@@ -86,6 +86,15 @@ namespace TowerReactDotNet.Repositories
             return rows;
         }
 
-
+        internal int UpdateEvent(TowerEvent towerEvent)
+        {
+            string sql = @"
+            UPDATE events
+            SET 
+            capacity = @capacity
+            WHERE id = @id;
+            "; int rows = _db.Execute(sql, towerEvent);
+            return rows;
+        }
     }
 }

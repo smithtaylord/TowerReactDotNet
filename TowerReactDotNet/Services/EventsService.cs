@@ -39,5 +39,12 @@ namespace TowerReactDotNet.Services
             return towerEvent;
         }
 
+        internal TowerEvent UpdatedEvent(TowerEvent towerEvent)
+        {
+            int rowsAffected = _repo.UpdateEvent(towerEvent);
+            if (rowsAffected == 0) throw new Exception("Could not modify for some reason");
+            if (rowsAffected > 1) throw new Exception("Something went very wrong and you edited more than one row");
+            return towerEvent;
+        }
     }
 }
