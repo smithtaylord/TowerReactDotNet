@@ -53,3 +53,12 @@ VALUES (
         false,
         '63ebf351822e730e1e0b3616'
     );
+
+CREATE TABLE
+    tickets(
+        id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        eventId INT NOT NULL,
+        accountId VARCHAR(255) NOT NULL,
+        FOREIGN KEY (eventId) REFERENCES events(id) ON DELETE CASCADE,
+        FOREIGN KEY (accountId) REFERENCES accounts(id) ON DELETE CASCADE
+    ) default charset utf8 COMMENT '';
