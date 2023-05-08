@@ -23,6 +23,7 @@ namespace TowerReactDotNet.Services
             return ticket;
         }
 
+
         internal List<Ticket> GetAttendees(int id)
         {
             List<Ticket> tickets = _repo.GetAttendees(id);
@@ -33,6 +34,17 @@ namespace TowerReactDotNet.Services
         {
             List<Ticket> tickets = _repo.GetMyTickets(id);
             return tickets;
+        }
+        internal string DeleteTicket(int id, string accountId)
+        {
+            Ticket ticket = _repo.GetOne(id);
+            if (ticket == null) throw new Exception($"No ticket with id: {id}");
+            if (ticket.AccountId != accountId) throw new Exception("This is not your ticket to delete");
+            _repo.DeleteTicket(id);
+            TowerEvent towerEvent = _eventsService.GetOneEvent(ticket.EventId);
+            towerEvent.Capacity++;
+            _eventsService.UpdatedEvent(towerEvent);
+            return "Your ticket has been deleted";
         }
     }
 }

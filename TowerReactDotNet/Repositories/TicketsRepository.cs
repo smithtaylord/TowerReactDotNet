@@ -23,6 +23,8 @@ namespace TowerReactDotNet.Repositories
             return ticketData;
         }
 
+
+
         internal List<Ticket> GetAttendees(int id)
         {
             string sql = @"
@@ -58,6 +60,26 @@ namespace TowerReactDotNet.Repositories
                 return t;
             }, new { id }).ToList();
             return tickets;
+        }
+
+        internal Ticket GetOne(int id)
+        {
+            string sql = @"
+            SELECT
+            *
+            FROM tickets
+            WHERE id = @id;
+            "; Ticket ticket = _db.Query<Ticket>(sql, new { id }).FirstOrDefault();
+            return ticket;
+        }
+
+        internal void DeleteTicket(int id)
+        {
+            string sql = @"
+            DELETE FROM
+            tickets
+            WHERE id = @id;
+            "; _db.Execute(sql, new { id });
         }
     }
 }

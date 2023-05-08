@@ -30,6 +30,21 @@ namespace TowerReactDotNet.Controllers
                 return BadRequest(e.Message);
             }
         }
+        [HttpDelete("{id}")]
+        [Authorize]
+        async public Task<ActionResult<string>> DeleteTicket(int id)
+        {
+            try
+            {
+                Account userInfo = await _auth.GetUserInfoAsync<Account>(HttpContext);
+                string message = _ticketsService.DeleteTicket(id, userInfo.Id);
+                return Ok(message);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
 
     }
 }
