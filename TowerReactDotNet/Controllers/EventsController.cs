@@ -5,12 +5,14 @@ namespace TowerReactDotNet.Controllers
     public class EventsController : ControllerBase
     {
         private readonly EventsService _eventsService;
+        private readonly TicketsService _ticketsService;
         private readonly Auth0Provider _auth;
 
-        public EventsController(EventsService eventsService, Auth0Provider auth)
+        public EventsController(EventsService eventsService, Auth0Provider auth, TicketsService ticketsService)
         {
             _eventsService = eventsService;
             _auth = auth;
+            _ticketsService = ticketsService;
         }
 
         [HttpPost]
@@ -61,6 +63,21 @@ namespace TowerReactDotNet.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        [HttpGet("{id}/tickets")]
+        public ActionResult<List<Ticket>> GetAttendees(int id)
+        {
+            try
+            {
+                List<Ticket> tickets = _ticketsService.GetAttendees(id);
+                return Ok(tickets);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
         [HttpDelete("{id}")]
         [Authorize]
         async public Task<ActionResult<string>> DeleteEvent(int id)

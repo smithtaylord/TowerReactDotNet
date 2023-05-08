@@ -23,6 +23,12 @@ namespace TowerReactDotNet.Services
             return ticket;
         }
 
+        internal List<Ticket> GetAttendees(int id)
+        {
+            List<Ticket> tickets = _repo.GetAttendees(id);
+            return tickets;
+        }
+
         internal List<Ticket> GetMyTickets(string id)
         {
             List<Ticket> tickets = _repo.GetMyTickets(id);
