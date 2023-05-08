@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import '../assets/scss/components/EventDetails.scss'
 import Pop from '../utils/Pop.js';
 import { eventsService } from '../services/EventsService.js';
+import { ticketsService } from '../services/TicketsService.js';
 
 export default function EventDetails({ event }) {
 
@@ -11,6 +12,14 @@ export default function EventDetails({ event }) {
             if (await Pop.confirm('Are you sure you would like to cancel this event?')) {
                 await eventsService.cancelEvent(event.id)
             }
+        }
+        catch (error) {
+            Pop.error(error);
+        }
+    }
+    async function createTicket() {
+        try {
+            await ticketsService.createTicket(event.id)
         }
         catch (error) {
             Pop.error(error);
@@ -64,7 +73,9 @@ export default function EventDetails({ event }) {
                                                 {event.isCanceled ? 'Event Canceled' : event.capacity}
                                             </b>{event.isCanceled ? '' : 'Spots Left'}
                                         </span>
-                                        <button>Attend?</button>
+                                        <button className='btn bg-warning selectable me-3'
+                                            onClick={createTicket}
+                                        >Attend?</button>
                                     </div>
                                 </div>
                             </div>
