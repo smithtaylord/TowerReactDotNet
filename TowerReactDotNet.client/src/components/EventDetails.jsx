@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types'
 import '../assets/scss/components/EventDetails.scss'
 import Pop from '../utils/Pop.js';
 import { eventsService } from '../services/EventsService.js';
 import { ticketsService } from '../services/TicketsService.js';
 import { AppState } from '../AppState.js';
-import { logger } from '../utils/Logger.js';
 
 export default function EventDetails({ event }) {
     const addUserBtn = (
