@@ -5,6 +5,7 @@ import { logger } from '../utils/Logger.js'
 import { accountService } from './AccountService'
 import { api } from './AxiosService'
 import { socketService } from './SocketService'
+import { ticketsService } from './TicketsService.js'
 
 export const AuthService = initialize({
   domain,
@@ -31,6 +32,7 @@ AuthService.on(AuthService.AUTH_EVENTS.AUTHENTICATED, async() => {
   await accountService.getAccount()
   socketService.authenticate(AuthService.bearer)
   // NOTE if there is something you want to do once the user is authenticated, place that here
+  ticketsService.getMyTickets()
 })
 
 async function refreshAuthToken(config) {

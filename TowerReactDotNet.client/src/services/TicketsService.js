@@ -18,6 +18,15 @@ async getAttendees(eventId){
     AppState.attendees = res.data
 }
 
+async getMyTickets(){
+    const res = await api.get('account/tickets')
+    logger.log('[my tickets]', res.data)
+}
+
+async returnTicket(ticketId){
+    const res = await api.delete(`api/tickets/${ticketId}`)
+}
+
 }
 
 export const ticketsService = new TicketsService()
