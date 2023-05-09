@@ -11,6 +11,9 @@ class ObservableAppState {
 allEvents = []
 activeEvent= {}
 activeFilter = ''
+attendees = []
+
+myEvents = []
 
   constructor() {
     makeAutoObservable(this)

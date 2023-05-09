@@ -11,6 +11,12 @@ async createTicket(eventId){
     AppState.activeEvent = new TowerEvent(res.data.event)
 }
 
+async getAttendees(eventId){
+    const res = await api.get(`api/events/${eventId}/tickets`)
+    logger.log('[attendees]', res.data)
+    AppState.attendees = res.data
+}
+
 }
 
 export const ticketsService = new TicketsService()

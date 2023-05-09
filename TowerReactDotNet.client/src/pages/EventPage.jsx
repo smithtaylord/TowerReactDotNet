@@ -7,6 +7,7 @@ import { AppState } from '../AppState.js';
 import EventDetails from '../components/EventDetails.jsx';
 import Attendees from '../components/Attendees.jsx';
 import Comments from '../components/Comments.jsx';
+import { ticketsService } from '../services/TicketsService.js';
 
 function componentName() {
     const { eventId } = useParams();
@@ -20,9 +21,17 @@ function componentName() {
             Pop.error(error);
         }
     }
+    async function getAttendees() {
+        try {
+            await ticketsService.getAttendees(eventId)
+        }
+        catch (error) {
+            Pop.error(error);
+        }
+    }
 
     useEffect(() => {
-        getEvent()
+        getEvent(), getAttendees()
     }, [eventId])
 
     return (
