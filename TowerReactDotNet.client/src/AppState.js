@@ -14,6 +14,7 @@ activeFilter = ''
 attendees = []
 
 myEvents = []
+myTickets = []
 
   constructor() {
     makeAutoObservable(this)

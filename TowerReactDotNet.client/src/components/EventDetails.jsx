@@ -5,6 +5,7 @@ import Pop from '../utils/Pop.js';
 import { eventsService } from '../services/EventsService.js';
 import { ticketsService } from '../services/TicketsService.js';
 import { AppState } from '../AppState.js';
+import { logger } from '../utils/Logger.js';
 
 export default function EventDetails({ event }) {
     const addUserBtn = (
@@ -52,8 +53,8 @@ export default function EventDetails({ event }) {
 
     async function returnTicket() {
         try {
-            const ticketId = 1
-            await ticketsService.returnTicket(ticketId)
+            const ticket = AppState.myTickets.find(t => t.eventId == event.id)
+            await ticketsService.returnTicket(ticket.id, event.id)
         }
         catch (error) {
             Pop.error(error);

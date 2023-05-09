@@ -10,6 +10,7 @@ async createTicket(eventId){
     logger.log('[create ticket]', res.data)
     AppState.activeEvent = new TowerEvent(res.data.event)
     this.getAttendees(eventId)
+    this.getMyTickets()
 }
 
 async getAttendees(eventId){
@@ -21,10 +22,14 @@ async getAttendees(eventId){
 async getMyTickets(){
     const res = await api.get('account/tickets')
     logger.log('[my tickets]', res.data)
+    AppState.myTickets = (res.data)
 }
 
-async returnTicket(ticketId){
+async returnTicket(ticketId, eventId){
     const res = await api.delete(`api/tickets/${ticketId}`)
+    logger.log(res.data)
+    AppState.activeEvent.capacity++
+    this.getAttendees(eventId)
 }
 
 }
