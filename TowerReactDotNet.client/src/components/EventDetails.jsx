@@ -4,9 +4,10 @@ import '../assets/scss/components/EventDetails.scss'
 import Pop from '../utils/Pop.js';
 import { eventsService } from '../services/EventsService.js';
 import { ticketsService } from '../services/TicketsService.js';
+import { AppState } from '../AppState.js';
 
 export default function EventDetails({ event }) {
-
+    const foundTicket = AppState.attendees.find(a => a.account.id == AppState.account?.id)
     async function cancelEvent() {
         try {
             if (await Pop.confirm('Are you sure you would like to cancel this event?')) {
@@ -73,9 +74,13 @@ export default function EventDetails({ event }) {
                                                 {event.isCanceled ? 'Event Canceled' : event.capacity}
                                             </b>{event.isCanceled ? '' : 'Spots Left'}
                                         </span>
-                                        <button className='btn bg-warning selectable me-3'
-                                            onClick={createTicket}
-                                        >Attend?</button>
+                                        {foundTicket ?
+                                            (<div> did this work</div>)
+                                            :
+                                            (<button className='btn bg-warning selectable me-3'
+                                                onClick={createTicket}
+                                            >Attend?</button>)}
+
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +88,7 @@ export default function EventDetails({ event }) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 
 }

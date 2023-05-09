@@ -16,12 +16,14 @@ export default function Attendees({ attendees }) {
     })
 
     return (
-
-        <div className="container-fluid">
-            <div className="row bg-secondary m-3 p-3  tower-box-shadow">
-                {attendee}
+        <>
+            <div className='text-info fs-4 px-3 py-1'>See who is attending</div>
+            <div className="container-fluid">
+                <div className="row bg-secondary m-3 p-3  tower-box-shadow">
+                    {attendee}
+                </div>
             </div>
-        </div>
+        </>
     )
 
 }
