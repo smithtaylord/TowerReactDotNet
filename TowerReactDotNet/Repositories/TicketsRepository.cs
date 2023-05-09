@@ -50,12 +50,15 @@ namespace TowerReactDotNet.Repositories
             string sql = @"
             SELECT
             t.*,
-            e.*
+            e.*,
+            a.*
             FROM tickets t
-            JOIN events e ON t.accountId = e.creatorId
+            JOIN events e ON t.eventId = e.id
+            JOIN accounts a ON t.accountId = a.id
             WHERE t.accountId = @id;
-            "; List<Ticket> tickets = _db.Query<Ticket, TowerEvent, Ticket>(sql, (t, te) =>
+            "; List<Ticket> tickets = _db.Query<Ticket, TowerEvent, Account, Ticket>(sql, (t, te, a) =>
             {
+                t.Account = a;
                 t.Event = te;
                 return t;
             }, new { id }).ToList();
