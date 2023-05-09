@@ -12,6 +12,7 @@ import { ticketsService } from '../services/TicketsService.js';
 function componentName() {
     const { eventId } = useParams();
     const event = AppState.activeEvent
+    const attendees = AppState.attendees
 
     async function getEvent() {
         try {
@@ -37,7 +38,7 @@ function componentName() {
     return (
         <>
             <EventDetails event={event} />
-            <Attendees />
+            <Attendees attendees={attendees} />
             <Comments />
         </>
     );

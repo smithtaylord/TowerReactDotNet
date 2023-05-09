@@ -9,6 +9,7 @@ async createTicket(eventId){
     const res = await api.post('api/tickets', {eventId})
     logger.log('[create ticket]', res.data)
     AppState.activeEvent = new TowerEvent(res.data.event)
+    this.getAttendees(eventId)
 }
 
 async getAttendees(eventId){
