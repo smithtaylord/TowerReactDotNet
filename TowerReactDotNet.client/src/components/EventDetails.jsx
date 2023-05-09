@@ -7,6 +7,33 @@ import { ticketsService } from '../services/TicketsService.js';
 import { AppState } from '../AppState.js';
 
 export default function EventDetails({ event }) {
+    const addUserBtn = (
+        <button className='btn bg-warning selectable me-3'
+            onClick={createTicket}>
+            <span className='d-flex align-items-center'>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="currentColor" className="mt-3">
+                    <path d="M11 5a3 3 0 11-6 0 3 3 0 016 0zM2.615 16.428a1.224 1.224 0 01-.569-1.175 6.002 6.002 0 0111.908 0c.058.467-.172.92-.57 1.174A9.953 9.953 0 018 18a9.953 9.953 0 01-5.385-1.572zM16.25 5.75a.75.75 0 00-1.5 0v2h-2a.75.75 0 000 1.5h2v2a.75.75 0 001.5 0v-2h2a.75.75 0 000-1.5h-2v-2z" />
+                </svg>
+                <div>
+                    Attend Event
+                </div>
+            </span>
+        </button>
+    )
+    const removeUserBtn = (
+        <button className='btn bg-danger selectable me-3'
+            onClick={createTicket}>
+            <span className='d-flex align-items-center'>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="currentColor" className="mt-3">
+                    <path d="M11 5a3 3 0 11-6 0 3 3 0 016 0zM2.046 15.253c-.058.468.172.92.57 1.175A9.953 9.953 0 008 18c1.982 0 3.83-.578 5.384-1.573.398-.254.628-.707.57-1.175a6.001 6.001 0 00-11.908 0zM12.75 7.75a.75.75 0 000 1.5h5.5a.75.75 0 000-1.5h-5.5z" />
+                </svg>
+
+                <div>
+                    Return Ticket
+                </div>
+            </span>
+        </button>
+    )
     const foundTicket = AppState.attendees.find(a => a.account.id == AppState.account?.id)
     async function cancelEvent() {
         try {
@@ -75,11 +102,9 @@ export default function EventDetails({ event }) {
                                             </b>{event.isCanceled ? '' : 'Spots Left'}
                                         </span>
                                         {foundTicket ?
-                                            (<div> did this work</div>)
+                                            (<div>{removeUserBtn}</div>)
                                             :
-                                            (<button className='btn bg-warning selectable me-3'
-                                                onClick={createTicket}
-                                            >Attend?</button>)}
+                                            (<div>{addUserBtn}</div>)}
 
                                     </div>
                                 </div>
