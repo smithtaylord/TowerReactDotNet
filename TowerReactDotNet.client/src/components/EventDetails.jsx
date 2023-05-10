@@ -30,10 +30,14 @@ export default function EventDetails({ event, foundTicket }) {
         </button>
     )
     const soldOut = (
-        <button>SOLD OUT</button>
+        <button disabled
+            className='btn bg-secondary me-3'>
+            SOLD OUT
+        </button>
     )
-
-    // const foundTicket = AppState.attendees.find(a => a.account.id == AppState.account?.id)
+    const zeroSpots = <b className='fs-2 pe-2 ms-3 text-danger'>0</b>
+    const spots = <b className='fs-2 pe-2 ms-3 text-info'>{event.capacity}</b>
+    const eventCanceled = <b className='fs-2 pe-2 ms-3 text-danger'>EVENT CANCELED</b>
     async function cancelEvent() {
         try {
             if (await Pop.confirm('Are you sure you would like to cancel this event?')) {
@@ -106,9 +110,8 @@ export default function EventDetails({ event, foundTicket }) {
                                     </div>
                                     <div className='pb-3 d-flex justify-content-between'>
                                         <span>
-                                            <b className='fs-2 pe-2 ms-3 text-info'>
-                                                {event.isCanceled ? 'Event Canceled' : event.capacity}
-                                            </b>{event.isCanceled ? '' : 'Spots Left'}
+                                            {event.isCanceled ? eventCanceled : event.capacity <= 0 ? zeroSpots : spots}
+                                            {event.isCanceled ? '' : 'Spots Left'}
                                         </span>
                                         {/* {foundTicket ? removeUserBtn : addUserBtn} */}
                                         {event.capacity <= 0 && !foundTicket ? soldOut : foundTicket ? removeUserBtn : addUserBtn}
