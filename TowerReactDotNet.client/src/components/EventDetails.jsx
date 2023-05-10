@@ -6,7 +6,7 @@ import { eventsService } from '../services/EventsService.js';
 import { ticketsService } from '../services/TicketsService.js';
 import { AppState } from '../AppState.js';
 
-export default function EventDetails({ event }) {
+export default function EventDetails({ event, foundTicket }) {
     const addUserBtn = (
         <button className='btn bg-warning selectable me-3'
             onClick={createTicket}>
@@ -30,7 +30,7 @@ export default function EventDetails({ event }) {
         </button>
     )
 
-    const foundTicket = AppState.attendees.find(a => a.account.id == AppState.account?.id)
+    // const foundTicket = AppState.attendees.find(a => a.account.id == AppState.account?.id)
     async function cancelEvent() {
         try {
             if (await Pop.confirm('Are you sure you would like to cancel this event?')) {

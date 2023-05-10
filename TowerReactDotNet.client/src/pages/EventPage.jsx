@@ -13,6 +13,7 @@ function componentName() {
     const { eventId } = useParams();
     const event = AppState.activeEvent
     const attendees = AppState.attendees
+    const foundTicket = AppState.attendees.find(a => a.account.id == AppState.account?.id)
 
     async function getEvent() {
         try {
@@ -37,7 +38,7 @@ function componentName() {
 
     return (
         <>
-            <EventDetails event={event} />
+            <EventDetails event={event} foundTicket={foundTicket} />
             <Attendees attendees={attendees} />
             <Comments />
         </>
