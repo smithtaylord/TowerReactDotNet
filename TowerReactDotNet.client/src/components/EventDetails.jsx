@@ -29,6 +29,9 @@ export default function EventDetails({ event, foundTicket }) {
             </span>
         </button>
     )
+    const soldOut = (
+        <button>SOLD OUT</button>
+    )
 
     // const foundTicket = AppState.attendees.find(a => a.account.id == AppState.account?.id)
     async function cancelEvent() {
@@ -107,8 +110,8 @@ export default function EventDetails({ event, foundTicket }) {
                                                 {event.isCanceled ? 'Event Canceled' : event.capacity}
                                             </b>{event.isCanceled ? '' : 'Spots Left'}
                                         </span>
-                                        {foundTicket ? removeUserBtn : addUserBtn}
-
+                                        {/* {foundTicket ? removeUserBtn : addUserBtn} */}
+                                        {event.capacity <= 0 && !foundTicket ? soldOut : foundTicket ? removeUserBtn : addUserBtn}
                                     </div>
                                 </div>
                             </div>
