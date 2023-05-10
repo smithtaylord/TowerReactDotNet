@@ -122,5 +122,6 @@ export default function EventDetails({ event, foundTicket }) {
 }
 
 EventDetails.propTypes = {
-    event: PropTypes.object.isRequired
+    event: PropTypes.object.isRequired,
+    foundTicket: PropTypes.object
 }
