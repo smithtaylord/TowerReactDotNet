@@ -118,14 +118,21 @@ export default function EventDetails({ event, foundTicket }) {
                                             {event.description}
                                         </p>
                                     </div>
-                                    <div className='pb-3 d-flex justify-content-between'>
-                                        <span>
-                                            {event.isCanceled ? eventCanceled : event.capacity <= 0 ? zeroSpots : spots}
-                                            {event.isCanceled ? '' : 'Spots Left'}
-                                        </span>
-                                        {/* {foundTicket ? removeUserBtn : addUserBtn} */}
-                                        {event.capacity <= 0 && !foundTicket ? soldOut : foundTicket ? removeUserBtn : addUserBtn}
-                                    </div>
+                                    {AppState.account !== null ?
+                                        (<div className='pb-3 d-flex justify-content-between'>
+                                            <span>
+                                                {event.isCanceled ? eventCanceled : event.capacity <= 0 ? zeroSpots : spots}
+                                                {event.isCanceled ? '' : 'Spots Left'}
+                                            </span>
+                                            {event.capacity <= 0 && !foundTicket ? soldOut : foundTicket ? removeUserBtn : addUserBtn}
+                                        </div>) :
+                                        (<div className='pb-3 d-flex justify-content-between'>
+                                            <span>
+                                                {event.isCanceled ? eventCanceled : event.capacity <= 0 ? zeroSpots : spots}
+                                                {event.isCanceled ? '' : 'Spots Left'}
+                                            </span>
+                                            {event.capacity <= 0 ? soldOut : null}
+                                        </div>)}
                                 </div>
                             </div>
                         </div>
