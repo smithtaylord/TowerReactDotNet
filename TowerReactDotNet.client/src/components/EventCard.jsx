@@ -4,9 +4,14 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
 
 export default function EventCard({ event }) {
+    const zeroSpots = <b className='text-danger pe-2'>0</b>
+    const spots = <b className='text-primary pe-2'>{event.capacity}</b>
+    const eventCanceled = <b className='text-primary pe-2'>EVENT CANCELED</b>
+
 
     return (
-        <div className='event-card tower-box-shadow card-border rounded'>
+        <div style={event.isCanceled ? { filter: 'grayscale(100%)' } : {}}
+            className='event-card tower-box-shadow card-border rounded'>
             <div className='card position-relative card-border rounded'>
                 <Link to={`event/${event.id}`}>
                     <img
@@ -20,8 +25,8 @@ export default function EventCard({ event }) {
                     </div>
                     <div className='ps-2 text-info'>{event.location}</div>
                     <div className='px-2 pb-1 text-info text-end'>
-                        <b className='text-primary pe-2'>{event.capacity}</b>
-                        spots left
+                        {event.isCanceled ? eventCanceled : event.capacity <= 0 ? zeroSpots : spots}
+                        {event.isCanceled ? '' : 'Spots Left'}
                     </div>
                 </div>
             </div>
