@@ -8,7 +8,7 @@ import { AppState } from '../AppState.js';
 
 export default function EventDetails({ event, foundTicket }) {
     const addUserBtn = (
-        <button className='btn bg-warning selectable me-3'
+        <button className='btn bg-warning selectable me-4'
             onClick={createTicket}>
             <span className='d-flex align-items-center'>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="currentColor" className="mt-3">
@@ -19,7 +19,7 @@ export default function EventDetails({ event, foundTicket }) {
         </button>
     )
     const removeUserBtn = (
-        <button className='btn bg-danger selectable me-3'
+        <button className='btn bg-danger selectable me-4'
             onClick={returnTicket}>
             <span className='d-flex align-items-center'>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="currentColor" className="mt-3">
@@ -31,10 +31,32 @@ export default function EventDetails({ event, foundTicket }) {
     )
     const soldOut = (
         <button disabled
-            className='btn bg-secondary me-3'>
+            className='btn bg-secondary me-4'>
             SOLD OUT
         </button>
     )
+    const cancelEventBtn = (
+        <div className='text-end mt-3'
+            title='cancel event'
+            onClick={cancelEvent}>
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 35 35"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="text-danger cancel selectable me-3">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </div>
+    )
+    const emptyBtn = (
+        <div className=''>
+            <svg className="cancel">
+            </svg>
+        </div>
+    )
+
     const zeroSpots = <b className='fs-2 pe-2 ms-3 text-danger'>0</b>
     const spots = <b className='fs-2 pe-2 ms-3 text-info'>{event.capacity}</b>
     const eventCanceled = <b className='fs-2 pe-2 ms-3 text-danger'>EVENT CANCELED</b>
@@ -81,26 +103,14 @@ export default function EventDetails({ event, foundTicket }) {
                                         src={event.coverImg} alt={event.name} />
                                 </div>
                                 <div className='col-8'>
-                                    <div className='text-end mt-3'
-                                        title='cancel event'
-                                        onClick={cancelEvent}>
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            fill="none"
-                                            viewBox="0 0 35 35"
-                                            strokeWidth={1.5}
-                                            stroke="currentColor"
-                                            className="text-danger cancel selectable me-3">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                        </svg>
-                                    </div>
+                                    {event.creatorId == AppState.account?.id ? cancelEventBtn : emptyBtn}
                                     <div className="d-flex justify-content-between ms-3">
                                         <div>
                                             <div className="pb-3 fs-2">{event.name}</div>
                                             <div className="text-info">{event.location}</div>
                                         </div>
                                         <div>
-                                            <div className="text-info pb-3 text-end pe-3 me-3 fs-3">{event.date}</div>
+                                            <div className="text-info pb-3 text-end pe-3 me-4 fs-3">{event.date}</div>
                                         </div>
                                     </div>
                                     <div>
