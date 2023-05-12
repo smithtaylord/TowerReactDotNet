@@ -21,7 +21,14 @@ export function Navbar() {
       >
         <span className="navbar-toggler-icon"></span>
       </button>
-      <div>Made with React and .NET</div>
+      <span>Made with
+        <img className="mx-2 logo"
+          src="https://diegomariano.com/wp-content/uploads/2021/06/react-logo.png"
+          alt="" /> &
+        <img className="ms-4 rounded logo"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Microsoft_.NET_logo.svg/2048px-Microsoft_.NET_logo.svg.png"
+          alt="" />
+      </span>
 
 
       {/* <div className="collapse navbar-collapse" id="navbarText">
