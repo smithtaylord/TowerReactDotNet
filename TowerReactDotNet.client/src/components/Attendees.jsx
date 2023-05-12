@@ -20,7 +20,8 @@ export default function Attendees({ attendees }) {
             <div className='text-info fs-4 px-3 py-1'>See who is attending</div>
             <div className="container-fluid">
                 <div className="row bg-secondary m-3 p-3  tower-box-shadow">
-                    {attendee}
+                    {attendees.length == 0 ? 'No Attendees yet. Maybe you will be the first?' : attendee}
+
                 </div>
             </div>
         </>
