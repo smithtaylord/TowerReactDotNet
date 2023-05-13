@@ -6,13 +6,15 @@ namespace TowerReactDotNet.Controllers
     {
         private readonly EventsService _eventsService;
         private readonly TicketsService _ticketsService;
+        private readonly CommentsService _commentsService;
         private readonly Auth0Provider _auth;
 
-        public EventsController(EventsService eventsService, Auth0Provider auth, TicketsService ticketsService)
+        public EventsController(EventsService eventsService, Auth0Provider auth, TicketsService ticketsService, CommentsService commentsService)
         {
             _eventsService = eventsService;
             _auth = auth;
             _ticketsService = ticketsService;
+            _commentsService = commentsService;
         }
 
         [HttpPost]
@@ -71,6 +73,19 @@ namespace TowerReactDotNet.Controllers
             {
                 List<Ticket> tickets = _ticketsService.GetAttendees(id);
                 return Ok(tickets);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+        [HttpGet("{id}/comments")]
+        public ActionResult<List<Comment>> GetComments(int id)
+        {
+            try
+            {
+                List<Comment> comments = _commentsService.GetComments(id);
+                return Ok(comments);
             }
             catch (Exception e)
             {

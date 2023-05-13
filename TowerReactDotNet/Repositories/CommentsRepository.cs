@@ -27,5 +27,22 @@ namespace TowerReactDotNet.Repositories
             commentData.Id = id;
             return commentData;
         }
+
+        internal List<Comment> GetComments(int id)
+        {
+            string sql = @"
+            SELECT
+            c.*,
+            a.*
+            FROM comments c
+            JOIN accounts a ON c.creatorId = a.id
+            WHERE eventId = @id;
+            "; List<Comment> eventComments = _db.Query<Comment, Profile, Comment>(sql, (c, p) =>
+            {
+                c.Creator = p;
+                return c;
+            }, new { id }).ToList();
+            return eventComments;
+        }
     }
 }
