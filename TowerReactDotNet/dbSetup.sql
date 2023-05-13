@@ -62,3 +62,13 @@ CREATE TABLE
         FOREIGN KEY (eventId) REFERENCES events(id) ON DELETE CASCADE,
         FOREIGN KEY (accountId) REFERENCES accounts(id) ON DELETE CASCADE
     ) default charset utf8 COMMENT '';
+
+CREATE TABLE
+    comments(
+        id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        creatorId VARCHAR(255) NOT NULL,
+        eventId INT NOT NULL,
+        body VARCHAR(500) NOT NULL,
+        FOREIGN KEY (eventId) REFERENCES events(id) ON DELETE CASCADE,
+        FOREIGN KEY (creatorId) REFERENCES accounts(id) ON DELETE CASCADE
+    ) default charset utf8 COMMENT '';
