@@ -8,5 +8,11 @@ namespace TowerReactDotNet.Services
         {
             _repo = repo;
         }
+
+        internal Comment CreateComment(Comment commentData)
+        {
+            Comment newComment = _repo.CreateComment(commentData);
+            return newComment;
+        }
     }
 }

@@ -12,5 +12,23 @@ namespace TowerReactDotNet.Controllers
             _commentsService = commentsService;
             _auth = auth;
         }
+
+        [HttpPost]
+        [Authorize]
+        async public Task<ActionResult<Comment>> CreateComment([FromBody] Comment commentData)
+        {
+            try
+            {
+                Account userInfo = await _auth.GetUserInfoAsync<Account>(HttpContext);
+                commentData.CreatorId = userInfo.Id;
+                Comment newComment = _commentsService.CreateComment(commentData);
+                newComment.Creator = userInfo;
+                return Ok(newComment);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }
