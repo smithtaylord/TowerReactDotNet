@@ -37,6 +37,8 @@ public class Startup
         services.AddScoped<EventsService>();
         services.AddScoped<TicketsRepository>();
         services.AddScoped<TicketsService>();
+        services.AddScoped<CommentsRepository>();
+        services.AddScoped<CommentsService>();
     }
 
     private void ConfigureCors(IServiceCollection services)
