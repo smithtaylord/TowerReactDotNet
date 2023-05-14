@@ -28,6 +28,7 @@ namespace TowerReactDotNet.Repositories
             return commentData;
         }
 
+
         internal List<Comment> GetComments(int id)
         {
             string sql = @"
@@ -43,6 +44,25 @@ namespace TowerReactDotNet.Repositories
                 return c;
             }, new { id }).ToList();
             return eventComments;
+        }
+
+        internal Comment GetOne(int id)
+        {
+            string sql = @"
+            SELECT 
+            *
+            FROM comments
+            WHERE id = @id
+            "; Comment comment = _db.Query<Comment>(sql, new { id }).FirstOrDefault();
+            return comment;
+        }
+        internal void DeleteComment(int id)
+        {
+            string sql = @"
+            DELETE FROM
+            comments
+            WHERE id = @id
+            "; _db.Execute(sql, new { id });
         }
     }
 }
