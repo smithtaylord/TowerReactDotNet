@@ -31,7 +31,7 @@ namespace TowerReactDotNet.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         [Authorize]
         async public Task<ActionResult<string>> DeleteComment(int id)
         {
