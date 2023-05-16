@@ -15,6 +15,7 @@ attendees = []
 
 myEvents = []
 myTickets = []
+comments=[]
 
   constructor() {
     makeAutoObservable(this)
