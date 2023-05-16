@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
-export default function Comments() {
-
+export default function Comments({ comments }) {
+    let comment = 
     return (
 
         <>
@@ -15,4 +16,8 @@ export default function Comments() {
         </>
     )
 
+}
+
+Comments.propTypes = {
+    comments: PropTypes.object.isRequired
 }
