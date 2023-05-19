@@ -17,6 +17,19 @@ class CommentsService{
         const updatedComments = [...AppState.comments, res.data]
         AppState.comments = updatedComments
     }
+
+    async deleteComment(commentId){
+        const res = await api.delete('api/comments/' + commentId)
+        logger.log(res.data)
+        const commentIndex = AppState.comments.findIndex(c => c.id == commentId)
+        if (commentIndex != -1){
+            const updatedComments = [
+                ...AppState.comments.slice(0, commentIndex),
+                ...AppState.comments.slice(commentIndex +1)
+            ]
+            AppState.comments = updatedComments
+        }
+    }
 }
 
 export const commentsService = new CommentsService()

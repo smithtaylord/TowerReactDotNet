@@ -3,13 +3,15 @@ import PropTypes from 'prop-types'
 import CommentForm from './CommentForm.jsx';
 import Pop from '../utils/Pop.js';
 import { logger } from '../utils/Logger.js';
+import { commentsService } from '../services/CommentsService.js';
 
 export default function Comments({ comments }) {
 
     const deleteComment = async (commentId) => {
         try {
             if (await Pop.confirm('Are you sure you want to delete your comment?'))
-                logger.log(commentId)
+                await commentsService.deleteComment(commentId)
+            Pop.toast('Comment Has Been Deleted', 'success', 'top-end')
         }
         catch (error) {
             Pop.error(error);
