@@ -4,8 +4,9 @@ import CommentForm from './CommentForm.jsx';
 import Pop from '../utils/Pop.js';
 import { logger } from '../utils/Logger.js';
 import { commentsService } from '../services/CommentsService.js';
+import { AppState } from '../AppState.js';
 
-export default function Comments({ comments }) {
+export default function Comments({ comments, account }) {
 
 
     const deleteComment = async (commentId) => {
@@ -41,7 +42,7 @@ export default function Comments({ comments }) {
                             <div className='d-flex justify-content-between'>
                                 <div className='text-dark fs-6 fw-bold'>{c.creator.name}</div>
                                 <div>
-                                    {deleteButton(c.id)}
+                                    {c.creator.id == account?.id ? deleteButton(c.id) : null}
                                 </div>
                             </div>
                             <div>{c.body}</div>
@@ -71,5 +72,6 @@ export default function Comments({ comments }) {
 }
 
 Comments.propTypes = {
-    comments: PropTypes.array.isRequired
+    comments: PropTypes.array.isRequired,
+    account: PropTypes.object
 }
