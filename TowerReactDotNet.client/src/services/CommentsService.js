@@ -12,6 +12,8 @@ class CommentsService{
     async postComment(formData){
         const res = await api.post('api/comments', formData)
         logger.log('[posting comment]', res.data)
+        res.data.creator.name = AppState.account?.name
+        res.data.creator.picture = AppState.account?.picture
         const updatedComments = [...AppState.comments, res.data]
         AppState.comments = updatedComments
     }

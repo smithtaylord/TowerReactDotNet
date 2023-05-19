@@ -5,7 +5,24 @@ import CommentForm from './CommentForm.jsx';
 export default function Comments({ comments }) {
     let comment = comments.map(c => {
         return (
-            <div key={c.id}>{c.body}</div>
+            <div key={c.id} className='container-fluid'>
+                <div className="row">
+                    <div className="col-2">
+                        <div className='text-center mb-4'>
+                            <img
+                                className='img-fluid rounded-circle prof-pic'
+                                src={c.creator.picture}
+                                alt={c.creator.name} />
+                        </div>
+                    </div>
+                    <div className="col-10">
+                        <section className='bg-info mb-4 p-3 rounded tower-box-shadow'>
+                            <div className='text-dark fs-6 fw-bold'>{c.creator.name}</div>
+                            <div>{c.body}</div>
+                        </section>
+                    </div>
+                </div>
+            </div>
         )
     })
     return (
