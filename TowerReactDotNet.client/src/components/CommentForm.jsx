@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Pop from '../utils/Pop.js';
 import { logger } from '../utils/Logger.js';
 import { useParams } from 'react-router-dom';
+import { commentsService } from '../services/CommentsService.js';
 
 export default function CommentForm() {
     const { eventId } = useParams();
@@ -12,7 +13,7 @@ export default function CommentForm() {
             let formData = {}
             formData.body = comment
             formData.eventId = eventId
-            logger.log(formData)
+            await commentsService.postComment(formData)
         }
         catch (error) {
             Pop.error(error);
