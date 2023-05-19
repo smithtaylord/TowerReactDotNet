@@ -7,6 +7,7 @@ import { commentsService } from '../services/CommentsService.js';
 
 export default function Comments({ comments }) {
 
+
     const deleteComment = async (commentId) => {
         try {
             if (await Pop.confirm('Are you sure you want to delete your comment?'))
@@ -17,6 +18,12 @@ export default function Comments({ comments }) {
             Pop.error(error);
         }
     }
+    const deleteButton = (commentId) => (
+        <button
+            className='btn text-danger fw-bold text-shadow m-0 p-0'
+            title='Delete Comment'
+            onClick={() => deleteComment(commentId)}>X</button>
+    )
     let comment = comments.map(c => {
         return (
             <div key={c.id} className='container-fluid'>
@@ -34,7 +41,7 @@ export default function Comments({ comments }) {
                             <div className='d-flex justify-content-between'>
                                 <div className='text-dark fs-6 fw-bold'>{c.creator.name}</div>
                                 <div>
-                                    <button onClick={() => deleteComment(c.id)}>delete comment</button>
+                                    {deleteButton(c.id)}
                                 </div>
                             </div>
                             <div>{c.body}</div>
@@ -44,6 +51,8 @@ export default function Comments({ comments }) {
             </div>
         )
     })
+
+
     return (
 
         <>
