@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
+import CommentForm from './CommentForm.jsx';
 
 export default function Comments({ comments }) {
     let comment = comments.map(c => {
@@ -13,8 +14,8 @@ export default function Comments({ comments }) {
             <div className='text-info fs-4 px-3 py-1'>Start the conversation</div>
             <div className="container-fluid">
                 <div className="row bg-secondary m-3 p-3  tower-box-shadow">
+                    <CommentForm />
                     {comment}
-
                 </div>
             </div>
         </>
