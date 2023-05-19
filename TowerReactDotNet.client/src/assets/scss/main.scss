@@ -43,6 +43,10 @@ form:invalid button[type="submit"] {
   pointer-events: none;
 }
 
+footer {
+  width: 10vw;
+}
+
 
 .tower-box-shadow {
   box-shadow: 3px 3px 6px #171920;
@@ -53,7 +57,32 @@ form:invalid button[type="submit"] {
 }
 
 
+.prof-pic {
+  width: 10vw;
+}
 
+.cancel {
+  height: 5vh;
+  width: 5vh;
+}
+
+.logo {
+  max-height: 4vh;
+  width: auto;
+}
+
+.txt-area {
+  height: 15vh;
+  overflow-y: auto;
+}
+
+.prof-pic {
+  height: 7vh;
+  width: 7vh;
+  object-fit: cover;
+}
+
+// NOTE This is the opensours section of SCSS from UIVERSE.IO
 // NOTE SCROLLBAR SECTION!!!
 // Target the scrollbar 
 ::-webkit-scrollbar {
@@ -282,33 +311,4 @@ input[type=date]:focus::-webkit-datetime-edit {
 
 .button-red:active {
   filter: brightness(.8);
-}
-
-footer {
-  width: 10vw;
-}
-
-.prof-pic {
-  width: 10vw;
-}
-
-.cancel {
-  height: 5vh;
-  width: 5vh;
-}
-
-.logo {
-  max-height: 4vh;
-  width: auto;
-}
-
-.txt-area {
-  height: 15vh;
-  overflow-y: auto;
-}
-
-.prof-pic {
-  height: 7vh;
-  width: 7vh;
-  object-fit: cover;
 }
