@@ -13,9 +13,11 @@ export default function Comments({ comments }) {
         <>
             <div className='text-info fs-4 px-3 py-1'>Start the conversation</div>
             <div className="container-fluid">
-                <div className="row bg-secondary m-3 p-3  tower-box-shadow">
-                    <CommentForm />
-                    {comment}
+                <div className="row ">
+                    <div className="col-8 m-auto bg-secondary m-3 p-3  tower-box-shadow">
+                        <CommentForm />
+                        {comment}
+                    </div>
                 </div>
             </div>
         </>
