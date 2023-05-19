@@ -1,8 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import CommentForm from './CommentForm.jsx';
+import Pop from '../utils/Pop.js';
+import { logger } from '../utils/Logger.js';
 
 export default function Comments({ comments }) {
+
+    const deleteComment = async (commentId) => {
+        try {
+            if (await Pop.confirm('Are you sure you want to delete your comment?'))
+                logger.log(commentId)
+        }
+        catch (error) {
+            Pop.error(error);
+        }
+    }
     let comment = comments.map(c => {
         return (
             <div key={c.id} className='container-fluid'>
@@ -17,7 +29,12 @@ export default function Comments({ comments }) {
                     </div>
                     <div className="col-10">
                         <section className='bg-info mb-4 p-3 rounded tower-box-shadow'>
-                            <div className='text-dark fs-6 fw-bold'>{c.creator.name}</div>
+                            <div className='d-flex justify-content-between'>
+                                <div className='text-dark fs-6 fw-bold'>{c.creator.name}</div>
+                                <div>
+                                    <button onClick={() => deleteComment(c.id)}>delete comment</button>
+                                </div>
+                            </div>
                             <div>{c.body}</div>
                         </section>
                     </div>

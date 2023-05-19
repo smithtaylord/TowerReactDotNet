@@ -7,7 +7,7 @@ export default function Attendees({ attendees }) {
         return (
             <div className='col-1'
                 key={a.id}>
-                <img className='img-fluid rounded-circle selectable prof-pic'
+                <img className='img-fluid rounded-circle prof-pic'
                     src={a.account.picture}
                     alt={a.account.name}
                     title={a.account.name} />

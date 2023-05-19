@@ -22,7 +22,6 @@ export default function CommentForm() {
     }
 
     return (
-
         <div className="p-3">
             <form onSubmit={postComment}>
                 <div className="mb-3 txt-area">
