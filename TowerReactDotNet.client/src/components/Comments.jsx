@@ -62,7 +62,7 @@ export default function Comments({ comments, account }) {
                 <div className="row ">
                     <div className="col-8 m-auto bg-secondary m-3 p-3  tower-box-shadow">
                         <div className='ps-3 mb-4'>
-                            <CommentForm />
+                            {account !== null ? <CommentForm /> : null}
                         </div>
                         {comment}
                     </div>
