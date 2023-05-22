@@ -9,6 +9,7 @@ import Attendees from '../components/Attendees.jsx';
 import Comments from '../components/Comments.jsx';
 import { ticketsService } from '../services/TicketsService.js';
 import { commentsService } from '../services/CommentsService.js';
+import Loader from '../components/Loader.jsx';
 
 function componentName() {
     const { eventId } = useParams();
@@ -49,7 +50,7 @@ function componentName() {
 
     return (
         <>
-            <EventDetails event={event} foundTicket={foundTicket} />
+            {AppState.activeEvent ? <EventDetails event={event} foundTicket={foundTicket} /> : <Loader />}
             <Attendees attendees={attendees} />
             <Comments comments={comments} account={account} />
         </>
