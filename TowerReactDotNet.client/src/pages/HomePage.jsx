@@ -6,6 +6,7 @@ import { AppState } from '../AppState.js';
 import EventCard from '../components/EventCard.jsx';
 import Banner from '../components/Banner.jsx';
 import SortBar from '../components/SortBar.jsx';
+import Loader from '../components/Loader.jsx'
 
 function HomePage() {
   async function getAllEvents() {
@@ -41,7 +42,7 @@ function HomePage() {
       <SortBar />
       <div className="container-fluid">
         <div className="row">
-          {event}
+          {AppState.allEvents === null ? <Loader /> : event}
         </div>
       </div>
     </>
