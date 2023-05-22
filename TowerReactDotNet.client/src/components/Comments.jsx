@@ -61,7 +61,9 @@ export default function Comments({ comments, account }) {
             <div className="container-fluid">
                 <div className="row ">
                     <div className="col-8 m-auto bg-secondary m-3 p-3  tower-box-shadow">
-                        <CommentForm />
+                        <div className='ps-3 mb-4'>
+                            <CommentForm />
+                        </div>
                         {comment}
                     </div>
                 </div>

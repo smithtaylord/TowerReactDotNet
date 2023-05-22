@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Pop from '../utils/Pop.js';
-import { logger } from '../utils/Logger.js';
 import { useParams } from 'react-router-dom';
 import { commentsService } from '../services/CommentsService.js';
 
