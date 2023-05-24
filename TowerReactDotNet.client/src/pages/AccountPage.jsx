@@ -11,9 +11,9 @@ function AccountPage() {
     AppState.activeEvent = {}
   }
 
-  async function handleClick(ticketId) {
+  async function handleClick(ticketId, eventId) {
     try {
-      await ticketsService.returnTicket(ticketId)
+      await ticketsService.returnTicket(ticketId, eventId)
     }
     catch (error) {
       Pop.error(error);
@@ -38,7 +38,7 @@ function AccountPage() {
                 <div className="text-info fs-6">{t.event.startDate}</div>
               </div>
               <div className="text-end px-4">
-                <button onClick={() => handleClick(t.id)}
+                <button onClick={() => handleClick(t.id, t.event.id)}
                   className="btn bg-danger tower-box-shadow selectable">
                   Not Going
                 </button>
