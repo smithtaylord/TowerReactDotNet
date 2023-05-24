@@ -42,7 +42,7 @@ function HomePage() {
       <SortBar />
       <div className="container-fluid">
         <div className="row">
-          {AppState.allEvents === null ? <Loader /> : event}
+          {AppState.allEvents.length <= 0 ? <Loader /> : event}
         </div>
       </div>
     </>

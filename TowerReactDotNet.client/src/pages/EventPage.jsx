@@ -50,7 +50,7 @@ function componentName() {
 
     return (
         <>
-            {AppState.activeEvent ? <EventDetails event={event} foundTicket={foundTicket} /> : <Loader />}
+            {AppState.activeEvent.id != null ? <EventDetails event={event} foundTicket={foundTicket} /> : <Loader />}
             <Attendees attendees={attendees} />
             <Comments comments={comments} account={account} />
         </>
