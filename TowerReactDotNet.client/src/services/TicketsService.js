@@ -30,6 +30,7 @@ async returnTicket(ticketId, eventId){
     logger.log(res.data)
     AppState.activeEvent.capacity++
     this.getAttendees(eventId)
+    this.getMyTickets
 }
 
 }

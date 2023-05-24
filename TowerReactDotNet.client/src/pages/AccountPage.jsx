@@ -2,11 +2,24 @@ import { observer } from "mobx-react";
 import React, { useEffect } from "react";
 import { AppState } from "../AppState.js";
 import Loader from '../components/Loader.jsx'
+import { logger } from "../utils/Logger.js";
+import Pop from "../utils/Pop.js";
+import { ticketsService } from "../services/TicketsService.js";
 
 function AccountPage() {
   function clearActiveEvent() {
     AppState.activeEvent = {}
   }
+
+  async function handleClick(ticketId) {
+    try {
+      await ticketsService.returnTicket(ticketId)
+    }
+    catch (error) {
+      Pop.error(error);
+    }
+  }
+
   let tickets = AppState.myTickets.map(t => {
     return (
       <div key={t.id} className="container mb-5 tower-box-shadow rounded bg-gradient">
@@ -25,7 +38,8 @@ function AccountPage() {
                 <div className="text-info fs-6">{t.event.startDate}</div>
               </div>
               <div className="text-end px-4">
-                <button>
+                <button onClick={() => handleClick(t.id)}
+                  className="btn bg-danger tower-box-shadow selectable">
                   Not Going
                 </button>
               </div>
