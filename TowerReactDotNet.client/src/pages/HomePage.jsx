@@ -18,6 +18,10 @@ function HomePage() {
     }
   }
 
+  function clearActiveEvent() {
+    AppState.activeEvent = {}
+  }
+
   let filteredEvents = AppState.allEvents;
   if (AppState.activeFilter) {
     filteredEvents = filteredEvents.filter(f => f.type == AppState.activeFilter)
@@ -33,7 +37,7 @@ function HomePage() {
   }))
 
   useEffect(() => {
-    getAllEvents()
+    getAllEvents(), clearActiveEvent()
   }, [])
 
   return (

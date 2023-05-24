@@ -1,10 +1,12 @@
 import { observer } from "mobx-react";
-import React from "react";
+import React, { useEffect } from "react";
 import { AppState } from "../AppState.js";
 import Loader from '../components/Loader.jsx'
 
 function AccountPage() {
-
+  function clearActiveEvent() {
+    AppState.activeEvent = {}
+  }
   let tickets = AppState.myTickets.map(t => {
     return (
       <div key={t.id} className="container mb-5 tower-box-shadow rounded bg-gradient">
@@ -33,6 +35,10 @@ function AccountPage() {
       </div>
     )
   })
+
+  useEffect(() => {
+    clearActiveEvent()
+  }, [])
 
   return (
     <div className="account-page">
