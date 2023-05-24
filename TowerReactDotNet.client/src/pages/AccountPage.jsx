@@ -5,6 +5,7 @@ import Loader from '../components/Loader.jsx'
 import { logger } from "../utils/Logger.js";
 import Pop from "../utils/Pop.js";
 import { ticketsService } from "../services/TicketsService.js";
+import { Link } from 'react-router-dom';
 
 function AccountPage() {
   function clearActiveEvent() {
@@ -25,10 +26,12 @@ function AccountPage() {
       <div key={t.id} className="container mb-5 tower-box-shadow rounded bg-gradient">
         <div className="row">
           <div className="col-3 p-0 ">
-            <img
-              src={t.event.coverImg}
-              alt={t.event.name}
-              className="ticket-pic img-fluid rounded-start" />
+            <Link to={`/event/${t.event.id}`}>
+              <img
+                src={t.event.coverImg}
+                alt={t.event.name}
+                className="ticket-pic img-fluid rounded-start" />
+            </Link>
           </div>
           <div className="col-9">
             <div className="d-flex flex-column">
