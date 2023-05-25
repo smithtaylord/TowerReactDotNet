@@ -1,6 +1,10 @@
 import React from 'react';
+import { AppState } from '../AppState.js';
+import { BindEditable } from '../utils/FormHandler.js';
 
 export default function EditEvent() {
+    const editable = { ...AppState.account }
+    const bindEditable = BindEditable(editable)
 
     return (
         <div className="modal-content bg-dark">
@@ -18,7 +22,9 @@ export default function EditEvent() {
                                     required
                                     type="text"
                                     id='name'
-                                    name='name' />
+                                    name='name'
+                                    defaultValue={editable.name}
+                                    onChange={bindEditable} />
                                 <span>Name</span>
                                 <i></i>
                             </div>
@@ -29,7 +35,9 @@ export default function EditEvent() {
                                     required
                                     type="text"
                                     id='picture'
-                                    name='picture' />
+                                    name='picture'
+                                    defaultValue={editable.picture}
+                                    onChange={bindEditable} />
                                 <span>Profile Picture</span>
                                 <i></i>
                             </div>
