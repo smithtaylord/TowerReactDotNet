@@ -4,7 +4,7 @@ import Login from "./Login.jsx";
 
 export function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-3 sticky-top">
       <Link className="navbar-brand d-flex" to={''}>
         <div className="d-flex flex-column align-items-center">
           <img alt="logo" src={'Logo.svg'} height="45" />

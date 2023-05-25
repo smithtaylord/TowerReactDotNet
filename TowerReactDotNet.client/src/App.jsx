@@ -21,7 +21,7 @@ export function App() {
               <Outlet />
             </main>
           </div>
-          <div className="col-xxl-2 col-lg-3">
+          <div className="col-xxl-2 col-lg-3 position-fixed top-0 end-0">
             <footer className='bg-dark bg-gradient'>
               <Login />
             </footer>
