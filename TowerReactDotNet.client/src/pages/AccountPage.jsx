@@ -59,7 +59,7 @@ function AccountPage() {
 
   return (
     <div className="account-page">
-      <h1 className="text-center text-info border-bottom py-4 bg-dark bg-gradient">{AppState.account?.name}'s Tickets</h1>
+      <h1 className="text-center text-info border-bottom py-4 bg-dark bg-gradient">{AppState.account?.name}&apos;s Tickets</h1>
       <div className="p-5 m-5">
         {AppState.myTickets.length == 0 ? <Loader /> : tickets}
       </div>
