@@ -36,7 +36,7 @@ function AccountPage() {
           <div className="col-9">
             <div className="d-flex flex-column">
               <div className="p-4">
-                <div className="text-white fs-5 fw-bold">{t.event.name}</div>
+                <div className="text-white fs-4 fw-bold">{t.event.name}</div>
                 <div className="text-info fs-6">{t.event.location}</div>
                 <div className="text-info fs-6">{t.event.startDate}</div>
               </div>
@@ -59,8 +59,7 @@ function AccountPage() {
 
   return (
     <div className="account-page">
-      <h1 className="text-center text-info border-bottom py-4 bg-dark bg-gradient">Welcome, {AppState.account?.name}</h1>
-      <h3 className="p-3">Tickets</h3>
+      <h1 className="text-center text-info border-bottom py-4 bg-dark bg-gradient">{AppState.account?.name}'s Tickets</h1>
       <div className="p-5 m-5">
         {AppState.myTickets.length == 0 ? <Loader /> : tickets}
       </div>

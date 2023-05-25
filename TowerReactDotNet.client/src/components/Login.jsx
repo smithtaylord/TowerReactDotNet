@@ -32,7 +32,7 @@ function Login() {
         <div className="col-12">
           <Link to={'Account'}>
             <button className="button w-100 mb-3">
-              Manage Account
+              My Tickets
             </button>
           </Link>
           <button className="button-red w-100 mb-3" onClick={logout}>
