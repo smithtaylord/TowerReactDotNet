@@ -29,7 +29,7 @@ function HomePage() {
   let event = (filteredEvents.map(e => {
     return (
       <div
-        className='col-12 col-md-3 p-4'
+        className='col-12 col-md-6 col-xl-3  py-4'
         key={e.id}>
         <EventCard event={e} />
       </div>

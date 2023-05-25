@@ -22,7 +22,7 @@ function Login() {
   )
 
   const authenticated = (
-    <div className="my-2 my-lg-0 container-fluid">
+    <div className="container-fluid">
       <img src={AppState.account?.picture || AppState.user?.
         // @ts-ignore
         picture} alt="account photo" className="img-fluid prof-pic  mt-3 rounded no-select mb-3" data-bs-toggle="dropdown"

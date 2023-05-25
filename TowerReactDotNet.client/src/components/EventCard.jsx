@@ -11,8 +11,8 @@ export default function EventCard({ event }) {
 
     return (
         <div style={event.isCanceled ? { filter: 'grayscale(100%)' } : {}}
-            className='event-card tower-box-shadow card-border rounded'>
-            <div className='card position-relative card-border rounded'>
+            className='tower-box-shadow card-border rounded'>
+            <div className='position-relative card-border rounded'>
                 <Link to={`event/${event.id}`}>
                     <img
                         className='img-fluid event-img selectable'

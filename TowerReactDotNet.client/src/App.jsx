@@ -13,13 +13,22 @@ export function App() {
     <div className="App bg-dark" id="app">
       <header>
       </header>
-      <main>
-        <Navbar />
-        <Outlet />
-      </main>
-      <footer className='bg-dark bg-gradient'>
-        <Login />
-      </footer>
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-xxl-10 col-lg-9">
+            <main>
+              <Navbar />
+              <Outlet />
+            </main>
+          </div>
+          <div className="col-xxl-2 col-lg-3">
+            <footer className='bg-dark bg-gradient'>
+              <Login />
+            </footer>
+          </div>
+        </div>
+      </div>
+
       <Modal target='createEventModal'>
         <CreateEvent />
       </Modal>
