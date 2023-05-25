@@ -4,6 +4,7 @@ import { BindEditable } from '../utils/FormHandler.js';
 import { logger } from '../utils/Logger.js';
 import Pop from '../utils/Pop.js';
 import { observer } from 'mobx-react';
+import { accountService } from '../services/AccountService.js';
 
 function EditAccount() {
     const editable = { ...AppState.account }
@@ -12,7 +13,7 @@ function EditAccount() {
     async function handleSubmit() {
         try {
             window.event?.preventDefault()
-            logger.log(editable)
+            accountService.editAccount(editable)
         }
         catch (error) {
             Pop.error(error);
