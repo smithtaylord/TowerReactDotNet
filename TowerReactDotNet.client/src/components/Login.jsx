@@ -46,6 +46,13 @@ function Login() {
             data-bs-target="#createEventModal">
             Create Event
           </button>
+          <button
+            type="button"
+            className="button w-100 mb-3"
+            data-bs-toggle="modal"
+            data-bs-target="#editAccountModal">
+            Edit Account
+          </button>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom'
 import { Navbar } from './components/Navbar.jsx'
 import Modal from './components/Modal.jsx'
 import CreateEvent from './components/CreateEvent.jsx'
-import EditEvent from './components/EditEvent.jsx'
+import EditAccount from './components/EditAccount.jsx'
 import Login from './components/Login.jsx'
 
 
@@ -23,8 +23,8 @@ export function App() {
       <Modal target='createEventModal'>
         <CreateEvent />
       </Modal>
-      <Modal target='editEventModal'>
-        <EditEvent />
+      <Modal target='editAccountModal'>
+        <EditAccount />
       </Modal>
 
 
