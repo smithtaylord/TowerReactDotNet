@@ -1,11 +1,23 @@
 import React from 'react';
 import { AppState } from '../AppState.js';
 import { BindEditable } from '../utils/FormHandler.js';
+import { logger } from '../utils/Logger.js';
+import Pop from '../utils/Pop.js';
+import { observer } from 'mobx-react';
 
-export default function EditEvent() {
+function EditAccount() {
     const editable = { ...AppState.account }
     const bindEditable = BindEditable(editable)
 
+    async function handleSubmit() {
+        try {
+            window.event?.preventDefault()
+            logger.log(editable)
+        }
+        catch (error) {
+            Pop.error(error);
+        }
+    }
     return (
         <div className="modal-content bg-dark">
             <div className="bg-secondary text-info rounded-top p-3 d-flex justify-content-between mb-3">
@@ -13,7 +25,7 @@ export default function EditEvent() {
                 <h1 className="modal-title fs-3" id="createEventModalLabel">Edit Account</h1>
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className="modal-body bg-dark px-4">
                     <div className="row">
                         <div className="col-6">
@@ -56,3 +68,5 @@ export default function EditEvent() {
     )
 
 }
+
+export default observer(EditAccount)
