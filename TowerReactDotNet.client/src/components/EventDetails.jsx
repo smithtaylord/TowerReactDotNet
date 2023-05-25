@@ -5,16 +5,23 @@ import Pop from '../utils/Pop.js';
 import { eventsService } from '../services/EventsService.js';
 import { ticketsService } from '../services/TicketsService.js';
 import { AppState } from '../AppState.js';
+import { FaUserPlus } from 'react-icons/fa'
 
 export default function EventDetails({ event, foundTicket }) {
     const addUserBtn = (
         <button className='btn bg-warning selectable me-4'
             onClick={createTicket}>
             <span className='d-flex align-items-center'>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="currentColor" className="mt-3">
+                <div className='me-3 mb-1 fs-5'>
+                    <FaUserPlus />
+                </div>
+                {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="currentColor" className="mt-3">
                     <path d="M11 5a3 3 0 11-6 0 3 3 0 016 0zM2.615 16.428a1.224 1.224 0 01-.569-1.175 6.002 6.002 0 0111.908 0c.058.467-.172.92-.57 1.174A9.953 9.953 0 018 18a9.953 9.953 0 01-5.385-1.572zM16.25 5.75a.75.75 0 00-1.5 0v2h-2a.75.75 0 000 1.5h2v2a.75.75 0 001.5 0v-2h2a.75.75 0 000-1.5h-2v-2z" />
-                </svg>
-                <div>Attend Event</div>
+                </svg> */}
+                <div className='fs-4'>Attend Event</div>
+                <span>
+
+                </span>
             </span>
         </button>
     )
@@ -120,11 +127,13 @@ export default function EventDetails({ event, foundTicket }) {
                                     </div>
                                     {AppState.account !== null ?
                                         (<div className='pb-3 d-flex justify-content-between'>
-                                            <span>
+                                            <div>
                                                 {event.isCanceled ? eventCanceled : event.capacity <= 0 ? zeroSpots : spots}
                                                 {event.isCanceled ? '' : 'Spots Left'}
-                                            </span>
-                                            {event.capacity <= 0 && !foundTicket ? soldOut : foundTicket ? removeUserBtn : addUserBtn}
+                                            </div>
+                                            <div>
+                                                {event.capacity <= 0 && !foundTicket ? soldOut : foundTicket ? removeUserBtn : addUserBtn}
+                                            </div>
                                         </div>) :
                                         (<div className='pb-3 d-flex justify-content-between'>
                                             <span>
