@@ -20,9 +20,9 @@
     border: 3px solid #474C61;
 }
 
-.hover :hover {
-    transform: scale(.98);
-}
+// .hover :hover {
+//     transform: scale(.98);
+// }
 
 .no-shadow {
     text-shadow: none;
@@ -34,4 +34,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.sold-out {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-image: linear-gradient(50deg, #e13f5d 0%, #e97a8f 51%, #e13f5d 100%);
+    transform: rotate(45deg) translateY(-2px) translateX(35px);
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.23);
 }
