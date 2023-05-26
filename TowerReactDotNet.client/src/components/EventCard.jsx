@@ -10,26 +10,29 @@ export default function EventCard({ event }) {
 
 
     return (
-        <div style={event.isCanceled ? { filter: 'grayscale(100%)' } : {}}
-            className='tower-box-shadow card-border rounded'>
-            <div className='position-relative card-border rounded'>
-                <Link to={`event/${event.id}`}>
-                    <img
-                        className='img-fluid event-img selectable'
-                        src={event.coverImg}
-                        alt={event.name} />
-                </Link>
-                <div className='position-absolute bottom-0 start-0 glass-card rounded-bottom'>
-                    <div className='ps-2 pt-3 text-body-bg'>
-                        <b>{event.name}</b>
-                    </div>
-                    <div className='ps-2 text-info'>{event.location}</div>
-                    <div className='px-2 pb-1 text-info text-end'>
-                        {event.isCanceled ? eventCanceled : event.capacity <= 0 ? zeroSpots : spots}
-                        {event.isCanceled ? '' : 'Spots Left'}
+        <div className='hover'>
+            <div style={event.isCanceled ? { filter: 'grayscale(100%)' } : {}}
+                className='tower-box-shadow card-border rounded'>
+                <div className='position-relative card-border rounded'>
+                    <Link to={`event/${event.id}`}>
+                        <img
+                            className='img-fluid event-img selectable'
+                            src={event.coverImg}
+                            alt={event.name} />
+                    </Link>
+                    <div className='position-absolute bottom-0 start-0 glass-card rounded-bottom'>
+                        <div className='ps-2 pt-3 text-body-bg'>
+                            <b>{event.name}</b>
+                        </div>
+                        <div className='ps-2 text-info'>{event.location}</div>
+                        <div className='px-2 pb-1 text-info text-end'>
+                            {event.isCanceled ? eventCanceled : event.capacity <= 0 ? zeroSpots : spots}
+                            {event.isCanceled ? '' : 'Spots Left'}
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
     )
 
