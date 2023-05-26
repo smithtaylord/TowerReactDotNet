@@ -21,7 +21,8 @@ function AccountPage() {
 
   async function handleClick(ticketId, eventId) {
     try {
-      await ticketsService.returnTicket(ticketId, eventId)
+      if (await Pop.confirm('Are you sure you want to return your ticket?'))
+        await ticketsService.returnTicket(ticketId, eventId)
     }
     catch (error) {
       Pop.error(error);
