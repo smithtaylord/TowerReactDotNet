@@ -10,18 +10,8 @@ export function Navbar() {
           <img alt="logo" src={'Logo.svg'} height="45" />
         </div>
       </Link>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarText"
-        aria-controls="navbarText"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <span>Made with
+
+      <span className="d-none d-lg-block">Made with
         <img className="mx-2 logo"
           src="https://diegomariano.com/wp-content/uploads/2021/06/react-logo.png"
           alt="" /> &
@@ -29,18 +19,22 @@ export function Navbar() {
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Microsoft_.NET_logo.svg/2048px-Microsoft_.NET_logo.svg.png"
           alt="" />
       </span>
-
-
-      {/* <div className="collapse navbar-collapse" id="navbarText">
-        <ul className="navbar-nav me-auto">
-          <li> */}
-      {/* <Link to={'About'} className="btn text-success lighten-30 selectable text-uppercase">
-              About
-            </Link> */}
-      {/* </li>
-        </ul>
-        <Login />
-      </div > */}
+      <button className="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarText"
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
+        <div className="collapse navbar-collapse d-md-none" id="navbarText">
+          <ul className="navbar-nav me-auto d-md-none">
+            <li className="d-md-none">
+              <Login />
+            </li>
+          </ul>
+        </div>
+      </button>
     </nav >
   )
 }

@@ -25,7 +25,7 @@ function Login() {
     <div className="container-fluid">
       <img src={AppState.account?.picture || AppState.user?.
         // @ts-ignore
-        picture} alt="account photo" className="img-fluid mt-3 rounded mb-3" data-bs-toggle="dropdown"
+        picture} alt="account photo" className="img-fluid mt-3 rounded mb-3 d-none d-lg-block" data-bs-toggle="dropdown"
         aria-expanded="false" />
 
       <div className="row">

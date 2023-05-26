@@ -42,7 +42,9 @@ function HomePage() {
 
   return (
     <>
-      <Banner />
+      <div className='d-none d-lg-block'>
+        <Banner />
+      </div>
       <SortBar />
       <div className="container-fluid">
         <div className="row">
