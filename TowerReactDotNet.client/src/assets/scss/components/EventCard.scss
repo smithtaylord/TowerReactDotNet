@@ -20,6 +20,15 @@
     border: 3px solid #474C61;
 }
 
+.event-card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.event-card:hover {
+    transform: scale(1.1);
+    z-index: 1;
+}
+
 // .hover :hover {
 //     transform: scale(.98);
 // }
