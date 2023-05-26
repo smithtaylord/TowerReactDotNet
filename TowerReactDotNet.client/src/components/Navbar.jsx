@@ -27,14 +27,14 @@ export function Navbar() {
         aria-expanded="false"
         aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
-        <div className="collapse navbar-collapse d-md-none" id="navbarText">
-          <ul className="navbar-nav me-auto d-md-none">
-            <li className="d-md-none">
-              <Login />
-            </li>
-          </ul>
-        </div>
       </button>
+      <div className="collapse navbar-collapse d-md-none" id="navbarText">
+        <ul className="navbar-nav me-auto d-md-none">
+          <li className="d-md-none">
+            <Login />
+          </li>
+        </ul>
+      </div>
     </nav >
   )
 }
