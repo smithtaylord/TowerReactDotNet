@@ -5,7 +5,7 @@ export default function Attendees({ attendees }) {
 
     let attendee = attendees.map(a => {
         return (
-            <div className='col-4 col-sm-3 col-lg-2 col-xxl-1 p-0'
+            <div className='col-4 col-sm-3 col-lg-2 col-xxl-1 p-0 py-1'
                 key={a.id}>
                 <img className='img-fluid rounded-circle prof-pic'
                     src={a.account.picture}
