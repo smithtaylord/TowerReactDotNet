@@ -6,6 +6,7 @@ import { eventsService } from '../services/EventsService.js';
 import { ticketsService } from '../services/TicketsService.js';
 import { AppState } from '../AppState.js';
 import { FaUserPlus, FaUserMinus } from 'react-icons/fa'
+import { GiCancel } from 'react-icons/gi'
 
 
 export default function EventDetails({ event, foundTicket }) {
@@ -38,18 +39,10 @@ export default function EventDetails({ event, foundTicket }) {
         </button>
     )
     const cancelEventBtn = (
-        <div className='text-end mt-3'
+        <div className='text-end mt-2 me-2 fs-4 text-danger selectable'
             title='cancel event'
             onClick={cancelEvent}>
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 35 35"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="text-danger cancel selectable me-3">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+            <GiCancel />
         </div>
     )
     const emptyBtn = (
