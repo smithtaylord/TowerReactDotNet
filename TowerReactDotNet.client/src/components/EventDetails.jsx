@@ -127,7 +127,7 @@ export default function EventDetails({ event, foundTicket }) {
                                                 {event.isCanceled ? '' : 'Spots Left'}
                                             </div>
                                             <div>
-                                                {event.capacity <= 0 && !foundTicket ? soldOut : foundTicket ? removeUserBtn : addUserBtn}
+                                                {event.capacity <= 0 && !foundTicket ? soldOut : event.isCanceled ? null : foundTicket ? removeUserBtn : addUserBtn}
                                             </div>
                                         </div>) :
                                         (<div className='pb-3 d-flex justify-content-between'>
