@@ -15,8 +15,10 @@ function AccountPage() {
   } else {
     possive = AppState.account?.name + "'s"
   }
-  function clearActiveEvent() {
+  function clear() {
     AppState.activeEvent = {}
+    AppState.attendees = []
+    AppState.comments = []
   }
 
   async function handleClick(ticketId, eventId) {
@@ -62,7 +64,7 @@ function AccountPage() {
   })
 
   useEffect(() => {
-    clearActiveEvent()
+    clear()
   }, [])
 
   return (

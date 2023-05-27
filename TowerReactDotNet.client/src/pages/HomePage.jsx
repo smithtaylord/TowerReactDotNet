@@ -18,8 +18,10 @@ function HomePage() {
     }
   }
 
-  function clearActiveEvent() {
+  function clear() {
     AppState.activeEvent = {}
+    AppState.attendees = []
+    AppState.comments = []
   }
 
   let filteredEvents = AppState.allEvents;
@@ -37,7 +39,7 @@ function HomePage() {
   }))
 
   useEffect(() => {
-    getAllEvents(), clearActiveEvent()
+    getAllEvents(), clear()
   }, [])
 
   return (
