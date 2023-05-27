@@ -29,7 +29,7 @@ export default function Comments({ comments, account }) {
         return (
             <div key={c.id} className='container-fluid'>
                 <div className="row">
-                    <div className="col-2">
+                    <div className="col-3 col-lg-2">
                         <div className='text-center mb-4'>
                             <img
                                 className='img-fluid rounded-circle prof-pic'
@@ -37,7 +37,7 @@ export default function Comments({ comments, account }) {
                                 alt={c.creator.name} />
                         </div>
                     </div>
-                    <div className="col-10">
+                    <div className="col-9 col-lg-10">
                         <section className='bg-info mb-4 p-3 rounded tower-box-shadow'>
                             <div className='d-flex justify-content-between'>
                                 <div className='text-dark fs-6 fw-bold'>{c.creator.name}</div>
@@ -60,7 +60,7 @@ export default function Comments({ comments, account }) {
             <div className='text-info fs-4 px-3 py-1'>Start the conversation</div>
             <div className="container-fluid">
                 <div className="row ">
-                    <div className="col-8 m-auto bg-secondary m-3 p-3  tower-box-shadow">
+                    <div className="col-12 col-md-8 m-auto bg-secondary m-3 p-3  tower-box-shadow">
                         <div className='ps-3 mb-4'>
                             {account !== null ? <CommentForm /> : null}
                         </div>
