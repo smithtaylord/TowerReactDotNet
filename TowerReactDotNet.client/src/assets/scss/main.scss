@@ -88,6 +88,12 @@ form:invalid button[type="submit"] {
   object-fit: cover;
 }
 
+@media (max-width: 786px) {
+  .btn-small {
+    font-size: 12pt !important;
+  }
+
+}
 
 // NOTE This is the opensours section of SCSS from UIVERSE.IO
 // NOTE SCROLLBAR SECTION!!!

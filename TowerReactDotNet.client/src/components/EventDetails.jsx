@@ -13,10 +13,10 @@ export default function EventDetails({ event, foundTicket }) {
         <button className='btn bg-warning selectable me-4'
             onClick={createTicket}>
             <span className='d-flex align-items-center'>
-                <div className='me-3 mb-1 fs-5'>
+                <div className='me-3 mb-1 fs-5 btn-small'>
                     <FaUserPlus />
                 </div>
-                <div className='fs-4'>Attend Event</div>
+                <div className='fs-4 btn-small'>Attend Event</div>
             </span>
         </button>
     )
@@ -24,10 +24,10 @@ export default function EventDetails({ event, foundTicket }) {
         <button className='btn bg-danger selectable me-4'
             onClick={returnTicket}>
             <span className='d-flex align-items-center'>
-                <div className='me-3 mb-1 fs-5'>
+                <div className='me-3 mb-1 fs-5 btn-small'>
                     <FaUserMinus />
                 </div>
-                <div className='fs-4'>Attend Event</div>
+                <div className='fs-4  btn-small'>Return Ticket</div>
             </span>
         </button>
     )
@@ -100,11 +100,11 @@ export default function EventDetails({ event, foundTicket }) {
                         style={event.isCanceled ? { backgroundImage: `url(${event.coverImg})`, backgroundSize: 'cover', filter: 'grayscale(50%)' } : { backgroundImage: `url(${event.coverImg})`, backgroundSize: 'cover' }}>
                         <div className='bg-card'>
                             <div className="row">
-                                <div className="col-4">
+                                <div className="col-12 col-md-4">
                                     <img className='img-fluid event-pic border m-3'
                                         src={event.coverImg} alt={event.name} />
                                 </div>
-                                <div className='col-8'>
+                                <div className='col-12 col-md-8'>
                                     {event.creatorId == AppState.account?.id ? cancelEventBtn : emptyBtn}
                                     <div className="d-flex justify-content-between ms-3">
                                         <div>
