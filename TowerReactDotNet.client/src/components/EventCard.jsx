@@ -7,13 +7,13 @@ export default function EventCard({ event }) {
     const zeroSpots = <b className='text-danger pe-2'>0</b>;
     const spots = <b className='text-primary pe-2'>{event.capacity}</b>;
     const eventCanceled = (
-        <div className='sold-out tower-box-shadow'>
-            <span className='p-3'>Canceled</span>
+        <div className='canceled tower-box-shadow'>
+            <span></span>
         </div>
     );
     const soldOut = (
         <div className='sold-out tower-box-shadow'>
-            <span className='p-3'>SOLD OUT</span>
+            <span></span>
         </div>
     );
 
