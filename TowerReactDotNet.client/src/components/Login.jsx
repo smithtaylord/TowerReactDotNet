@@ -23,11 +23,13 @@ function Login() {
 
   const authenticated = (
     <div className="container-fluid">
-      <img src={AppState.account?.picture || AppState.user?.
-        // @ts-ignore
-        picture} alt="account photo" className="img-fluid mt-3 rounded mb-3 d-none d-lg-block" data-bs-toggle="dropdown"
-        aria-expanded="false" />
-
+      <div className="d-flex justify-content-center">
+        <img src={AppState.account?.picture || AppState.user?.
+          // @ts-ignore
+          picture}
+          alt="account photo"
+          className="img-fluid mt-3 rounded mb-3 d-none d-lg-block text-center" />
+      </div>
       <div className="row">
         <div className="col-12">
           <Link to={'Account'}>

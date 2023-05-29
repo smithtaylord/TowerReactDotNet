@@ -21,8 +21,8 @@ export function App() {
               <Outlet />
             </main>
           </div>
-          <div className="d-none d-lg-block col-xxl-2 col-lg-3 position-fixed top-0 end-0">
-            <footer className='bg-dark bg-gradient'>
+          <div className="d-none d-lg-block col-xxl-2 col-lg-3 position-fixed top-0 end-0 bg-dark bg-gradient">
+            <footer className=''>
               <Login />
             </footer>
           </div>
