@@ -16,6 +16,15 @@ export default function EventCard({ event }) {
             <span></span>
         </div>
     );
+    const spotsLeft = (
+        <div className='px-2 pb-1 text-info text-end'>
+            {event.capacity <= 0 ? zeroSpots : spots}
+            Spots Left
+        </div>)
+    const canceled = (
+        <div className='px-2 pb-1 text-info text-end'>
+            <b className='pe-2'>CANCELED</b>
+        </div>)
 
     return (
         <div
@@ -37,10 +46,8 @@ export default function EventCard({ event }) {
                         <b>{event.name}</b>
                     </div>
                     <div className='ps-2 text-info'>{event.location}</div>
-                    <div className='px-2 pb-1 text-info text-end'>
-                        {event.capacity <= 0 ? zeroSpots : spots}
-                        Spots Left
-                    </div>
+                    {event.isCanceled ? canceled : spotsLeft}
+
                 </div>
             </div>
         </div>
