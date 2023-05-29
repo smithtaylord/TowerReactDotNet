@@ -51,10 +51,19 @@ export default function EventDetails({ event, foundTicket }) {
             </svg>
         </div>
     )
+    const eventCanceled = (
+        <div className='canceled tower-box-shadow'>
+            <span></span>
+        </div>
+    );
+    const sold = (
+        <div className='sold-out tower-box-shadow'>
+            <span></span>
+        </div>
+    );
 
     const zeroSpots = <b className='fs-2 pe-2 ms-3 text-danger'>0</b>
     const spots = <b className='fs-2 pe-2 ms-3 text-info'>{event.capacity}</b>
-    const eventCanceled = <b className='fs-2 pe-2 ms-3 text-danger'>EVENT CANCELED</b>
     async function cancelEvent() {
         try {
             if (await Pop.confirm('Are you sure you would like to cancel this event?')) {
@@ -125,11 +134,13 @@ export default function EventDetails({ event, foundTicket }) {
                                         </div>) :
                                         (<div className='pb-3 d-flex justify-content-between'>
                                             <span>
-                                                {event.isCanceled ? eventCanceled : event.capacity <= 0 ? zeroSpots : spots}
+                                                {event.isCanceled ? null : event.capacity <= 0 ? zeroSpots : spots}
                                                 {event.isCanceled ? '' : 'Spots Left'}
                                             </span>
                                             {event.capacity <= 0 ? soldOut : null}
                                         </div>)}
+                                    {event.isCanceled ? eventCanceled : null}
+                                    {event.capacity <= 0 && !event.isCanceled ? sold : null}
                                 </div>
                             </div>
                         </div>
