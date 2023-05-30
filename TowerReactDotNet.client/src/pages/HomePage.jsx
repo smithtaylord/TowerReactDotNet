@@ -8,6 +8,7 @@ import Banner from '../components/Banner.jsx';
 import SortBar from '../components/SortBar.jsx';
 import Loader from '../components/Loader.jsx'
 
+
 function HomePage() {
   async function getAllEvents() {
     try {
@@ -53,6 +54,7 @@ function HomePage() {
           {AppState.allEvents.length <= 0 ? <Loader /> : event}
         </div>
       </div>
+
     </>
   )
 
