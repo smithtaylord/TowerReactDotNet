@@ -68,16 +68,18 @@ function Login() {
       <span className="navbar-text">
         {!AppState.account?.id ? notAuthenticated : authenticated}
       </span>
-      <div className="item button-parrot mt-5 text-center ">
-        <button onClick={showTour}>Tour
-          <div className="parrot"></div>
-          <div className="parrot"></div>
-          <div className="parrot"></div>
-          <div className="parrot"></div>
-          <div className="parrot"></div>
-          <div className="parrot"></div>
-        </button>
-      </div>
+      {!AppState.account?.id && !AppState.showTour && (
+        <div className="item button-parrot mt-5 text-center ">
+          <button onClick={showTour}>Tour
+            <div className="parrot"></div>
+            <div className="parrot"></div>
+            <div className="parrot"></div>
+            <div className="parrot"></div>
+            <div className="parrot"></div>
+            <div className="parrot"></div>
+          </button>
+        </div>
+      )}
     </div>
   )
 }
