@@ -595,3 +595,21 @@ button {
     color: #fff;
   }
 }
+
+.reactour__helper--is-open {
+  background-color: #222;
+  /* Change this to your desired dark color */
+  opacity: 0.8;
+}
+
+/* Customize the next button */
+.reactour__controls__button--next {
+  background-color: blue;
+  color: white;
+}
+
+/* Customize the previous button */
+.reactour__controls__button--prev {
+  background-color: red;
+  color: white;
+}
