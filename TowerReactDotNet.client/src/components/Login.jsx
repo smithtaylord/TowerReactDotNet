@@ -63,20 +63,7 @@ function Login() {
       </div>
     </div>
   )
-  const tourSteps = [
-    {
-      selector: '#log-in',
-      content: 'Welcome to Tower! Begin by creating an account and logging in. You can use any email address for this process, even a fictitious one like example@example.com',
-    },
-    {
-      selector: '#step-two',
-      content: 'Step Two',
-      style: {
-        backgroundColor: 'black',
-        color: 'white'
-      }
-    }
-  ];
+
 
   return (
     <div>
@@ -94,13 +81,6 @@ function Login() {
             <div className="parrot"></div>
           </button>
         </div>
-      )}
-      {AppState.showTour && (
-        <Tour
-          isOpen={AppState.showTour}
-          steps={tourSteps}
-          onRequestClose={() => (AppState.showTour = false)}
-        />
       )}
     </div>
   )

@@ -11,7 +11,25 @@ import { observer } from 'mobx-react';
 
 function App() {
   // const [showTour, setShowTour] = useState(true);
-
+  const tourSteps = [
+    {
+      selector: '#log-in',
+      content: 'Welcome to Tower! Begin by creating an account and logging in. You can use any email address for this process, even a fictitious one like example@example.com'
+    },
+    {
+      selector: '#step-two',
+      content: 'Step Two',
+      style: {
+        backgroundColor: 'black',
+        color: 'white',
+        border: 'none',
+        borderRadius: '5px',
+        padding: '10px 20px'
+      },
+      action: () =>
+        console.log('WOAH LOOK OVER HERE')
+    }
+  ];
 
   return (
     <div className="App bg-dark" id="app">
@@ -25,12 +43,20 @@ function App() {
             </main>
           </div>
           <div className="d-none d-lg-block col-xxl-2 col-lg-3 position-fixed top-0 end-0 bg-dark bg-gradient">
-            <footer id='log-in'>
+            <footer id="log-in">
               <Login />
             </footer>
           </div>
         </div>
       </div>
+
+      {AppState.showTour && (
+        <Tour
+          isOpen={AppState.showTour}
+          steps={tourSteps}
+          onRequestClose={() => (AppState.showTour = false)}
+        />
+      )}
 
       <Modal target='createEventModal'>
         <CreateEvent />
