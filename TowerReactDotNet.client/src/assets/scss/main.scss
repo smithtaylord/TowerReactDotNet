@@ -473,3 +473,125 @@ input[type=date]:focus::-webkit-datetime-edit {
   box-shadow: -140px -140px #cc3f47;
   background-image: linear-gradient(45deg, #e13f5d 0%, #e97a8f 51%, #e13f5d 100%);
 }
+
+button {
+  --color: #79E7AB;
+  background: transparent;
+  color: var(--color);
+  border: 1px solid;
+  border-radius: .3em;
+  padding: 0.8rem 2rem;
+  font-weight: 400;
+  font-size: 17px;
+
+  font-family: inherit;
+  text-transform: uppercase;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: 0.2s ease-in-out;
+  letter-spacing: 2px;
+}
+
+// button {
+
+//   padding: 0.8em 1.7em;
+//   background-color: transparent;
+
+//   position: relative;
+//   overflow: hidden;
+//   cursor: pointer;
+//   transition: .5s;
+
+
+//   z-index: 1;
+// }
+
+.name {
+  width: 100%;
+  text-align: center;
+  padding: 0 0 3rem;
+  padding-top: 4rem;
+  font: 500 14px "Rubik", sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.button-parrot .parrot {
+  position: absolute;
+  width: 60px;
+  text-align: center;
+  animation: blink 0.8s infinite;
+  color: transparent;
+}
+
+.button-parrot .parrot:before {
+  content: "Click Me!";
+}
+
+.button-parrot .parrot:nth-child(1) {
+  top: -30px;
+  left: -40px;
+  font: 12px/1 "Margarine", sans-serif;
+  transform: rotate(-20deg);
+  animation-duration: 0.5s;
+}
+
+.button-parrot .parrot:nth-child(2) {
+  font: 12px/1 "Margarine", sans-serif;
+  right: -40px;
+  top: -20px;
+  transform: rotate(15deg);
+  animation-duration: 0.3s;
+}
+
+.button-parrot .parrot:nth-child(3) {
+  font: 16px/1 "Margarine", sans-serif;
+  top: -60px;
+  left: 15px;
+  transform: rotate(10deg);
+  animation-duration: 1s;
+}
+
+.button-parrot .parrot:nth-child(4) {
+  font: 18px/1 "Margarine", sans-serif;
+  top: -70px;
+  left: 95px;
+  transform: rotate(2deg);
+  animation-duration: 0.7s;
+}
+
+.button-parrot .parrot:nth-child(5) {
+  font: 14px/1 "Margarine", sans-serif;
+  top: 80px;
+  left: 105px;
+  transform: rotate(-20deg);
+  animation-duration: 0.8s;
+}
+
+.button-parrot .parrot:nth-child(6) {
+  font: 12px/1 "Margarine", sans-serif;
+  top: 80px;
+  left: 5px;
+  transform: rotate(10deg);
+  animation-duration: 1.2s;
+}
+
+.button-parrot button:hover .parrot:before {
+  content: "Do it!";
+  width: 70px;
+}
+
+@keyframes blink {
+
+  25%,
+  75% {
+    color: transparent;
+  }
+
+  40%,
+  60% {
+    color: #fff;
+  }
+}

@@ -17,9 +17,12 @@ function Login() {
 
   const notAuthenticated = (
     <div className="px-3">
-      <button className="button w-100 mt-3" onClick={login}>Login</button>
+      <button className="button w-100 mt-3 mb-5" onClick={login}>Login</button>
     </div>
   )
+  function showTour() {
+    AppState.showTour = true
+  }
 
   const authenticated = (
     <div className="container-fluid">
@@ -65,6 +68,16 @@ function Login() {
       <span className="navbar-text">
         {!AppState.account?.id ? notAuthenticated : authenticated}
       </span>
+      <div className="item button-parrot mt-5 text-center ">
+        <button onClick={showTour}>Tour
+          <div className="parrot"></div>
+          <div className="parrot"></div>
+          <div className="parrot"></div>
+          <div className="parrot"></div>
+          <div className="parrot"></div>
+          <div className="parrot"></div>
+        </button>
+      </div>
     </div>
   )
 }
