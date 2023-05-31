@@ -1,8 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Login from "./Login.jsx";
+import { AppState } from "../AppState.js";
+import { logger } from "../utils/Logger.js";
 
 export function Navbar() {
+  function showTour() {
+    AppState.showTour = true
+  }
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-3 sticky-top">
       <Link className="navbar-brand d-flex" to={''}>
@@ -35,6 +40,9 @@ export function Navbar() {
           </li>
         </ul>
       </div>
+      <button onClick={showTour}>
+        Tour
+      </button>
     </nav >
   )
 }

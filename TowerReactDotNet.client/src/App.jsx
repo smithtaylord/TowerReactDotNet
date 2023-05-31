@@ -6,11 +6,12 @@ import CreateEvent from './components/CreateEvent.jsx';
 import EditAccount from './components/EditAccount.jsx';
 import Login from './components/Login.jsx';
 import Tour from 'reactour';
+import { AppState } from './AppState.js';
+import { observer } from 'mobx-react';
 
-export function App() {
-  const [showTour, setShowTour] = useState(true);
+function App() {
+  // const [showTour, setShowTour] = useState(true);
 
-  // Define your tour steps
   const tourSteps = [
     {
       selector: '#log-in',
@@ -41,11 +42,11 @@ export function App() {
         </div>
       </div>
 
-      {showTour && (
+      {AppState.showTour && (
         <Tour
-          isOpen={showTour}
+          isOpen={AppState.showTour}
           steps={tourSteps}
-          onRequestClose={() => setShowTour(false)}
+          onRequestClose={() => (AppState.showTour = false)}
         />
       )}
 
@@ -58,3 +59,4 @@ export function App() {
     </div>
   );
 }
+export default observer(App)
