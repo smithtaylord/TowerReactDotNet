@@ -70,7 +70,11 @@ function Login() {
     },
     {
       selector: '#step-two',
-      content: 'Step Two'
+      content: 'Step Two',
+      style: {
+        backgroundColor: 'black',
+        color: 'white'
+      }
     }
   ];
 
