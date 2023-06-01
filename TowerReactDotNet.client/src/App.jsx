@@ -17,14 +17,12 @@ function App() {
       content: 'Welcome to Tower! Begin by creating an account and logging in. You can use any email address for this process, even a fictitious one like example@example.com'
     },
     {
-      selector: '#step-two',
-      content: 'Step Two',
+      content: 'You need to log in before you can see the rest of the tour :) ',
       style: {
         backgroundColor: 'black',
         color: 'white',
         border: 'none',
-        borderRadius: '5px',
-        padding: '10px 20px'
+
       },
       action: () =>
         console.log('WOAH LOOK OVER HERE')
