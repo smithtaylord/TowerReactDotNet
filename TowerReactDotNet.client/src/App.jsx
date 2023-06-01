@@ -22,6 +22,7 @@ function App() {
         backgroundColor: 'black',
         color: 'white',
         border: 'none',
+        fontSize: '25px'
 
       },
       action: () =>
