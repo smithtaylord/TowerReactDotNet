@@ -7,7 +7,7 @@ class TicketsService {
 
     async createTicket(eventId) {
         const res = await api.post('api/tickets', { eventId })
-        logger.log('[create ticket]', res.data)
+        // logger.log('[create ticket]', res.data)
         AppState.activeEvent = new TowerEvent(res.data.event)
         this.getAttendees(eventId)
         this.getMyTickets()
@@ -15,13 +15,13 @@ class TicketsService {
 
     async getAttendees(eventId) {
         const res = await api.get(`api/events/${eventId}/tickets`)
-        logger.log('[attendees]', res.data)
+        // logger.log('[attendees]', res.data)
         AppState.attendees = res.data
     }
 
     async getMyTickets() {
         const res = await api.get('account/tickets')
-        logger.log('[my tickets]', res.data)
+        // logger.log('[my tickets]', res.data)
         AppState.myTickets = (res.data)
     }
 
