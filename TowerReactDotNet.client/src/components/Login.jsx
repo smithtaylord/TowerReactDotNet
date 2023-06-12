@@ -21,9 +21,9 @@ function Login() {
       <button className="button w-100 mt-3 mb-5" onClick={login}>Login</button>
     </div>
   )
-  function showTour() {
-    AppState.showTour = true
-  }
+  // function showTour() {
+  //   AppState.showTour = true
+  // }
 
   const authenticated = (
     <div className="container-fluid">
@@ -72,14 +72,14 @@ function Login() {
       </span>
       {!AppState.account?.id && !AppState.showTour && (
         <div className="item button-parrot mt-5 text-center ">
-          <button onClick={showTour}>Tour
+          {/* <button onClick={showTour}>Tour
             <div className="parrot"></div>
             <div className="parrot"></div>
             <div className="parrot"></div>
             <div className="parrot"></div>
             <div className="parrot"></div>
             <div className="parrot"></div>
-          </button>
+          </button> */}
         </div>
       )}
     </div>
