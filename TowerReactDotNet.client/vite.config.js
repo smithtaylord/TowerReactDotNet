@@ -5,7 +5,7 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: 'docs',
+    outDir: '../TowerReactDotNet/wwwroot',
     sourcemap: false
   },
   server: {
