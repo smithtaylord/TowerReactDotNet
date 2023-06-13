@@ -39,10 +39,12 @@ export default function EventDetails({ event, foundTicket }) {
         </button>
     )
     const cancelEventBtn = (
-        <div className='text-end mt-2 me-2 fs-4 text-danger selectable'
-            title='cancel event'
-            onClick={cancelEvent}>
-            <GiCancel />
+        <div>
+            <button className='text-info border-0 selectable p-0 ms-4'
+                onClick={cancelEvent}
+                title='cancel event'>
+                <GiCancel />
+            </button>
         </div>
     )
     const emptyBtn = (
@@ -107,10 +109,13 @@ export default function EventDetails({ event, foundTicket }) {
                                         src={event.coverImg} alt={event.name} />
                                 </div>
                                 <div className='col-12 col-md-8'>
-                                    {event.creatorId == AppState.account?.id ? cancelEventBtn : emptyBtn}
-                                    <div className="d-flex justify-content-between ms-3">
+                                    <div className="d-flex justify-content-between ms-3 mt-4">
                                         <div>
-                                            <div className="pb-3 fs-2">{event.name}</div>
+                                            <div className='d-flex'>
+                                                <div className="pb-3 fs-2">{event.name}</div>
+                                                {event.creatorId == AppState.account?.id ? cancelEventBtn : emptyBtn}
+
+                                            </div>
                                             <div className="text-info">{event.location}</div>
                                         </div>
                                         <div>
