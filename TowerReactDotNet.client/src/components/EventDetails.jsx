@@ -129,12 +129,15 @@ export default function EventDetails({ event, foundTicket }) {
                                     </div>
                                     {AppState.account !== null ?
                                         (<div className='pb-3 d-flex justify-content-between'>
-                                            <div>
+                                            <div className='col-6'>
                                                 {event.isCanceled ? eventCanceled : event.capacity <= 0 ? zeroSpots : spots}
                                                 {event.isCanceled ? '' : 'Spots Left'}
                                             </div>
-                                            <div>
-                                                {event.capacity <= 0 && !foundTicket ? soldOut : event.isCanceled ? null : foundTicket ? removeUserBtn : addUserBtn}
+                                            <div className='col-6'>
+                                                <div className='text-end'>
+                                                    {event.capacity <= 0 && !foundTicket ? soldOut : event.isCanceled ? null : foundTicket ? removeUserBtn : addUserBtn}
+
+                                                </div>
                                             </div>
                                         </div>) :
                                         (<div className='pb-3 d-flex justify-content-between'>
