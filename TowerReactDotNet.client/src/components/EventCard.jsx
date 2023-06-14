@@ -27,30 +27,30 @@ export default function EventCard({ event }) {
         </div>)
 
     return (
-        <div
-            style={event.isCanceled ? { filter: 'grayscale(100%)' } : {}}
-            className='event-card tower-box-shadow card-border rounded'
-        >
-            <div className='position-relative card-border rounded'>
-                <Link to={`event/${event.id}`}>
+        <Link to={`event/${event.id}`}>
+            <div
+                style={event.isCanceled ? { filter: 'grayscale(100%)' } : {}}
+                className='event-card tower-box-shadow card-border rounded selectable'
+            >
+                <div className='position-relative card-border rounded'>
                     <img
-                        className='img-fluid event-img selectable'
+                        className='img-fluid event-img'
                         src={event.coverImg}
                         alt={event.name}
                     />
-                </Link>
-                {event.capacity <= 0 && !event.isCanceled ? soldOut : null}
-                {event.isCanceled ? eventCanceled : null}
-                <div className='position-absolute bottom-0 start-0 glass-card rounded-bottom'>
-                    <div className='ps-2 pt-3 text-body-bg'>
-                        <b>{event.name}</b>
-                    </div>
-                    <div className='ps-2 text-info'>{event.location}</div>
-                    {event.isCanceled ? canceled : spotsLeft}
+                    {event.capacity <= 0 && !event.isCanceled ? soldOut : null}
+                    {event.isCanceled ? eventCanceled : null}
+                    <div className='position-absolute bottom-0 start-0 glass-card'>
+                        <div className='ps-2 pt-3 text-body-bg'>
+                            <b>{event.name}</b>
+                        </div>
+                        <div className='ps-2 text-info'>{event.location}</div>
+                        {event.isCanceled ? canceled : spotsLeft}
 
+                    </div>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 }
 
